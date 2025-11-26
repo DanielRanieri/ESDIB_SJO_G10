@@ -30,11 +30,12 @@ nav i{
 
 .tabla{
     border-radius: 20px;
-    background-color: #B3D4E7;
+    background-color:#B3D4E7;
     padding: 40px;
     align-items: center;
     box-shadow: 0 0 8px rgba(0,0,0,4); 
 }
+
 
 .tabla a{
     text-decoration: none;
@@ -43,3 +44,17 @@ nav i{
     font-weight: bold;
 }
 
+.tabla button{
+    border-radius: 20px;
+    background-color:#6d78da;
+    max-height: 20px;
+    
+}
+
+.foto-tiburon{
+    display: block;
+    width: 100%;           
+    max-width: 140px;      
+    object-fit: cover;     
+    transform: scale(1.1); 
+}
