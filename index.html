@@ -3,41 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projecto Esdib</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Zooplanet</title>
+
+    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav class="navegacion">
-            <img src="../ESDIB_SJO_G10/imagenes/Captura de pantalla 2025-11-10 191721.png" alt="ZOO PLANET" class="zoo">
-            <div class="iconos">
-                <img src="../ESDIB_SJO_G10/imagenes/Captura de pantalla 2025-11-10 194249.png" alt="Bandera" class="bandera">
-                <i class="fa-solid fa-magnifying-glass"></i> 
-                <i class="fa-solid fa-bars"></i>     
-            </div>
-        </nav>
-    </header>
-    <div >
-        <table class="tabla">
-            <tr>  
-                <td>
-                    <p>Grupo 1: Zoo</p>
-                    <img class="foto-tiburon" src="/Mares_y_oceanos/Imagenes_sobre_los_animales_de_Acuario/Oceano_atlantico/Tiburon_ballena.jpg" alt="Tiburon Ballena"><hr>
-                    <button><a href="ZOO/zoo.html">Pagina 2</a></button>
-                </td>
-                <td>
-                    <p>Grupo 2: Acuario</p>
-                    <img class="foto-tiburon" src="/Mares_y_oceanos/Imagenes_sobre_los_animales_de_Acuario/Oceano_atlantico/Tiburon_ballena.jpg" alt="Tiburon Ballena"><hr>
-                    <button><a href="Mares_y_oceanos/aquarium.html">Pagina 4</a></button>
-                </td>
-                <td>
-                    <p>Grupo 3: Terrario</p>
-                    <img class="foto-tiburon" src="/Mares_y_oceanos/Imagenes_sobre_los_animales_de_Acuario/Oceano_atlantico/Tiburon_ballena.jpg" alt="Tiburon Ballena"><hr>
-                    <button><a href="TERRARIO/terrario.html">Pagina 6</a></button>
-                </td>
-            </tr>    
-        </table>
+
+<header>
+    <nav class="nav">
+        <h1 class="titulo">ZOOPLANET</h1>
+
+        <div class="iconos">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i id="menu-btn" class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+
+    <ul id="menu" class="menu-oculto">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="zoo.html">Zoo</a></li>
+        <li><a href="acuario.html">Acuario</a></li>
+        <li><a href="terrario.html">Terrario</a></li>
+        <li><a href="noticias.html">Noticias</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+    </ul>
+</header>
+
+
+<main class="contenedor">
+
+<section class="banner-auto">
+    <div class="banner-track">
+        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 1">
+        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 2">
+        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 3">
     </div>
+</section>
+
+    <section class="fila-botones">
+        <a href="zoo.html" class="boton-caja">
+                <h3>Zoo</h3>
+            </a>
+
+            <a href="acuario.html" class="boton-caja">
+                <h3>Acuario</h3>
+            </a>
+
+              <a href="terrario.html" class="boton-caja">
+                <h3>Terrario</h3>
+            </a>
+    </section>
+
+<section class="banner-auto">
+    <div class="banner-track">
+        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 1">
+        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 2">
+        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 3">
+    </div>
+</section>
+
+    <section class="seccion-carrusel">
+          <h2 class="titulo-seccion">Noticias</h2>
+
+    <div class="carrusel">
+        <div class="carrusel-track">
+            <a href="noticias.html"><img src="Imagenes/1200px-JumpingOrca.jpg" alt="Noticia 1"></a>
+            <a href="noticias.html"><img src="Imagenes/1200px-JumpingOrca.jpg" alt="Noticia 2"></a>
+            <a href="noticias.html"><img src="Imagenes/1200px-JumpingOrca.jpg" alt="Noticia 3"></a>
+            <a href="noticias.html"><img src="Imagenes/1200px-JumpingOrca.jpg" alt="Noticia 4"></a>
+            <a href="noticias.html"><img src="Imagenes/1200px-JumpingOrca.jpg" alt="Noticia 5"></a>
+        </div>
+
+        <button class="carrusel-btn prev">&#10094;</button>
+        <button class="carrusel-btn next">&#10095;</button>
+    </div>
+    </section>
+<div class="banner-texto">
+    <p>Bienvenido a ZooPlanet — Descubre animales, aprende, explora — Bienvenido a ZooPlanet —</p>
+</div>
+
+    <section class="seccion-ongs">
+    <h2 class="titulo-seccion">ONGs</h2>
+
+    <div class="grid-ongs">
+        <a href="ong1.html" class="ong-item">
+            <img src="Imagenes/1200px-JumpingOrca.jpg" alt="ONG 1">
+            <p>ONG 1</p>
+        </a>
+
+        <a href="ong2.html" class="ong-item">
+            <img src="Imagenes/1200px-JumpingOrca.jpg" alt="ONG 2">
+            <p>ONG 2</p>
+        </a>
+
+        <a href="ong3.html" class="ong-item">
+            <img src="Imagenes/1200px-JumpingOrca.jpg" alt="ONG 3">
+            <p>ONG 3</p>
+        </a>
+
+        <a href="ong4.html" class="ong-item">
+            <img src="Imagenes/1200px-JumpingOrca.jpg" alt="ONG 4">
+            <p>ONG 4</p>
+        </a>
+
+        <a href="ong5.html" class="ong-item">
+            <img src="Imagenes/1200px-JumpingOrca.jpg" alt="ONG 5">
+            <p>ONG 5</p>
+        </a>
+
+        <a href="ong6.html" class="ong-item">
+            <img src="Imagenes/1200px-JumpingOrca.jpg" alt="ONG 6">
+            <p>ONG 6</p>
+        </a>
+    </div>
+</section>
+
+
+</main>
+
+
+<footer class="footer">
+    <p>Zooplanet © 2025</p>
+</footer>
+
+
+<script src="menu.js"></script>
+<script src="carrusel.js"></script>
+
 </body>
 </html>
