@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página 1 - Zooplanet</title>
+    <title>Zooplanet</title>
+
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+<body>
 
-<body class="body_ter">
-   <header>
+<header>
     <nav class="nav">
-        <h1 class="titulo_ter">ZOOPLANET</h1>
+        <h1 class="titulo">ZOOPLANET</h1>
 
-        <div class="iconos_ter">
+        <div class="iconos">
             <i class="fa-solid fa-magnifying-glass"></i>
             <i id="menu-btn" class="fa-solid fa-bars"></i>
         </div>
@@ -31,23 +32,21 @@
     </ul>
 </header>
 
-    <main class="contenedor_ter">
-        <section class="fila-botones_ter">
 
-            <a href="#" class="boton-caja_ter">
-                <h3>Insectos</h3>
-            </a>
+<main class="contenedor">
 
-            <a href="#" class="boton-caja_ter">
-                <h3>Reptiles</h3>
-            </a>
-
-        </section>
-    </main>
+<form id="loginForm">
+    <input type="text" id="usuario" placeholder="Usuario" required>
+    <input type="password" id="contrasena" placeholder="Contraseña" required>
+    <button type="submit">Entrar</button>
+</form>
+</main>
 
 <footer class="footer">
     <p>Zooplanet © 2025</p>
 </footer>
+<script src="login.js"></script>
 <script src="menu.js"></script>
+<script src="carrusel.js"></script>
 </body>
 </html>
