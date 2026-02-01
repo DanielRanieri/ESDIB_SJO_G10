@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zooplanet</title>
-
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="CSS/styles.css">
+    <title>Zooplanet - Omnívoros</title>
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
@@ -20,6 +19,8 @@
                     <h1 class="titulo">ZOOPLANET</h1>
                 </a>
             </div>
+
+
 
             <div id="menu" class="menu-oculto">
                 <div class="menu-top">
@@ -79,97 +80,28 @@
                         </ul>
                     </li>
                 </ul>
-            </div>
-
-            <div class="iconos">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <a href="../login.html" id="login-btn-header"
-                    style="color: white; text-decoration: none; margin: 0 10px;">
-                    <i class="fa-solid fa-user"></i>
-                </a>
-            </div>
+                <div class="iconos">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <a href="../login.html" id="login-btn-header"
+                        style="color: white; text-decoration: none; margin: 0 10px;">
+                        <i class="fa-solid fa-user"></i>
+                    </a>
+                </div>
         </nav>
     </header>
+
     <main class="contenedor">
-
-
-        <div class="tarjeta">
-            <h2>Nombre </h2>
-            <p><em>-----</em></p>
-        </div>
-
-
-        <div class="tarjeta">
-            <h2>Nombre cientifico</h2>
-            <p class="nombre_cientifico"><em>-----</em></p>
-        </div>
-
-
-        <div class="dos-columnas">
-
-            <div class="tarjeta">
-                <h2>Tamaño</h2>
-                <p><em>-----</em></p>
-            </div>
-
-            <div class="tarjeta">
-                <h2>Peso</h2>
-                <p><em>-----</em></p>
-            </div>
-
-            <div class="tarjeta">
-                <h2>Rasgos distintivos</h2>
-                <p><em>-----</em></p>
-            </div>
-
-            <div class="tarjeta">
-                <h2>Clase</h2>
-                <p><em>-----</em></p>
-            </div>
-
-            <div class="tarjeta">
-                <h2>Familia</h2>
-                <p><em>-----</em></p>
-            </div>
-
-            <div class="tarjeta">
-                <h2>Dieta</h2>
-                <p><em>-----</em></p>
-            </div>
-
-            <div class="tarjeta">
-                <h2>Esperanza de vida</h2>
-                <p><em>-----</em></p>
-            </div>
-
-            <div class="tarjeta">
-                <h2>Distribución geográfica</h2>
-                <p><em>-----</em></p>
-            </div>
-
-            <div class="tarjeta">
-                <h2>Hábitat</h2>
-                <p><em>-----</em></p>
-            </div>
-
-            <div class="tarjeta">
-                <h2>Estado de conservación</h2>
-                <p><em>-----</em></p>
-            </div>
-
-        </div>
-
-        <div class="tarjeta imagen-animal">
-            <h2>Imagen</h2>
-            <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Orca saltando">
-        </div>
-
+        <h2 class="titulo-seccion">Omnívoros</h2>
+        <div id="animal-list-container" data-group="omnivoros" style="max-width: 1000px; margin: 0 auto;"></div>
     </main>
+
     <footer class="footer">
         <img src="../imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
         <p>Zooplanet © 2025</p>
     </footer>
-    <script src="menu.js"></script>
+
+    <script src="../menu.js"></script>
+    <script src="../sections_loader.js"></script>
 </body>
 
 </html>
