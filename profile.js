@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Recupera usuario del localStorage
     const userStr = localStorage.getItem('user');
 
-    // 1. Strict Auth Check
+    // 1. Redirige si no hay usuario
     if (!userStr) {
         window.location.href = 'login.html';
         return;
@@ -10,12 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
         const user = JSON.parse(userStr);
 
-        // 2. Ghost User Check (Empty object or missing critical fields)
+        // 2. Verifica integridad del usuario
         if (!user || !user.username || !user._id) {
             throw new Error('User data is corrupt or incomplete');
         }
 
-        // 3. Populate Data
+        // 3. Muestra información del perfil
         const nameEl = document.getElementById('profile-name');
         const userEl = document.getElementById('profile-username');
         if (nameEl) nameEl.textContent = user.name + ' ' + (user.lastname || '');
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // 4. Logout Logic
+        // 4. Cierre de sesión
         const logoutBtn = document.getElementById('logout-btn-page');
         if (logoutBtn) {
             logoutBtn.addEventListener('click', () => {
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     } catch (e) {
         console.error('Auth Error:', e);
-        // Clean up invalid state
+        // Limpia datos corruptos y redirige
         localStorage.removeItem('user');
         alert('Tu sesión ha expirado o es inválida. Por favor inicia sesión nuevamente.');
         window.location.href = 'login.html';
