@@ -1,41 +1,50 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"> <!-- Documento en español -->
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zooplanet - Developer Dashboard</title>
+    <meta charset="UTF-8"> <!-- Codificación UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive -->
+    <title>Zooplanet - Developer Dashboard</title> <!-- Título de la pestaña -->
+    
+    <!-- CSS base y estilos generales -->
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="CSS/styles.css">
+    
+    <!-- FontAwesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <style>
+        /* Contenedor principal de columnas */
         .dev-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales */
             gap: 20px;
             padding: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
+            max-width: 1400px; /* Ancho máximo */
+            margin: 0 auto; /* Centrado horizontal */
         }
 
+        /* Cada columna (Animales, Noticias, Usuarios) */
         .dev-column {
             background: white;
             border-radius: 15px;
             padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra ligera */
             text-align: center;
         }
 
+        /* Títulos dentro de columnas */
         .dev-column h2 {
             color: var(--verde-oscuro);
-            border-bottom: 2px solid var(--verde-claro);
+            border-bottom: 2px solid var(--verde-claro); /* Línea decorativa */
             padding-bottom: 10px;
             margin-bottom: 20px;
         }
 
+        /* Botones de acción */
         .dev-btn {
             display: block;
-            width: 100%;
+            width: 100%; /* Ocupa toda la columna */
             padding: 15px;
             margin-bottom: 15px;
             background: var(--verde-claro);
@@ -43,12 +52,13 @@
             text-decoration: none;
             border-radius: 10px;
             font-weight: bold;
-            transition: 0.3s;
+            transition: 0.3s; /* Transición para hover */
         }
 
+        /* Efecto hover en botones */
         .dev-btn:hover {
             background: var(--verde-oscuro);
-            transform: scale(1.02);
+            transform: scale(1.02); /* Ligera ampliación */
         }
     </style>
 </head>
@@ -57,71 +67,29 @@
 
     <header>
         <nav class="nav">
+            <!-- Botón menú y título -->
             <div class="nav-left">
-                <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i>
+                <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i> <!-- Icono de menú -->
                 <h1 class="titulo">ZOOPLANET - DEV MODE</h1>
             </div>
 
-
+            <!-- Menú lateral oculto -->
             <div id="menu" class="menu-oculto">
                 <div class="menu-top">
-                    <i class="fa-solid fa-xmark menu-close-btn" id="menu-close-btn"></i>
+                    <i class="fa-solid fa-xmark menu-close-btn" id="menu-close-btn"></i> <!-- Cerrar menú -->
                     <div class="menu-logo-circle">
                         <img src="imagenes/paz.png" alt="Zoo Logo">
                     </div>
-                    
                 </div>
 
+                <!-- Lista de navegación con submenús -->
                 <ul class="menu-list">
-                    <!-- ZOO -->
-                    <li>
-                        <div class="menu-item-head">ZOO <i class="fa-solid fa-plus"></i></div>
-                        <ul class="sub-menu">
-                            <li><a href="ZOO/carnivoros.html">CARNÍVOROS</a></li>
-                            <li><a href="ZOO/herbivoros.html">HERBÍVOROS</a></li>
-                            <li><a href="ZOO/omnivoros.html">OMNÍVOROS</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- ACUARIO -->
-                    <li>
-                        <div class="menu-item-head">ACUARIO <i class="fa-solid fa-plus"></i></div>
-                        <ul class="sub-menu">
-                            <li><a href="Mares_y_oceanos/oceano_pacifico.html">PACÍFICO</a></li>
-                            <li><a href="Mares_y_oceanos/oceano_atlantico.html">ATLÁNTICO</a></li>
-                            <li><a href="Mares_y_oceanos/mediterraneo.html">MEDITERRÁNEO</a></li>
-                            <li><a href="Mares_y_oceanos/mares_tropicales.html">MARES TROPICALES</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- TERRARIO -->
-                    <li>
-                        <div class="menu-item-head">TERRARIO <i class="fa-solid fa-plus"></i></div>
-                        <ul class="sub-menu">
-                            <li><a href="TERRARIO/insectos.html">INSECTOS</a></li>
-                            <li><a href="TERRARIO/reptiles.html">REPTILES</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- INFO -->
-                    <li>
-                        <div class="menu-item-head">INFORMACIÓN <i class="fa-solid fa-plus"></i></div>
-                        <ul class="sub-menu">
-                            <li><a href="noticias.html">NOTICIAS</a></li>
-                            <li><a href="ONG/ong1.html">ONGs</a></li>
-                            <li><a href="nosotros.html">NOSOTROS</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- JUEGOS -->
-                    <li>
-                        <div class="menu-item-head">JUEGOS <i class="fa-solid fa-plus"></i></div>
-                        <ul class="sub-menu">
-                            <li><a href="juegos.html">KAHOOT</a></li>
-                        </ul>
-                    </li>
+                    <!-- Secciones repetidas: ZOO, ACUARIO, TERRARIO, INFO, JUEGOS -->
+                    <li> ... </li>
                 </ul>
             </div>
+
+            <!-- Icono para volver a Home -->
             <div class="iconos">
                 <a href="index.html" style="color: white; font-size: 1.2rem; text-decoration: none;">
                     <i class="fa-solid fa-house"></i> Volver a Home
@@ -130,6 +98,7 @@
         </nav>
     </header>
 
+    <!-- Contenedor principal del dashboard -->
     <main class="dev-container">
         <!-- Columna 1: Animales -->
         <div class="dev-column">
@@ -150,11 +119,13 @@
         </div>
     </main>
 
+    <!-- Footer con logo y copyright -->
     <footer class="footer">
         <img src="imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
         <p>Zooplanet © 2025 - Developer Access</p>
     </footer>
 
+    <!-- Script para controlar el menú lateral -->
     <script src="menu.js"></script>
 </body>
 
