@@ -3,36 +3,46 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- Configuración responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Zooplanet - Registro</title>
+
+    <!-- Estilos base y principales -->
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="CSS/styles.css">
+
+    <!-- Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
 
+    <!-- Header y navegación -->
     <header>
         <nav class="nav">
             <div class="nav-left">
+                <!-- Botón menú -->
                 <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i>
+
+                <!-- Logo / inicio -->
                 <a href="index.html" style="text-decoration:none; color:inherit;">
                     <h1 class="titulo">ZOOPLANET</h1>
                 </a>
             </div>
 
-
+            <!-- Menú desplegable -->
             <div id="menu" class="menu-oculto">
                 <div class="menu-top">
                     <i class="fa-solid fa-xmark menu-close-btn" id="menu-close-btn"></i>
                     <div class="menu-logo-circle">
                         <img src="imagenes/paz.png" alt="Zoo Logo">
                     </div>
-                    
                 </div>
 
+                <!-- Opciones del menú -->
                 <ul class="menu-list">
-                    <!-- ZOO -->
+                    <!-- Secciones principales -->
                     <li>
                         <div class="menu-item-head">ZOO <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -42,7 +52,6 @@
                         </ul>
                     </li>
 
-                    <!-- ACUARIO -->
                     <li>
                         <div class="menu-item-head">ACUARIO <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -53,7 +62,6 @@
                         </ul>
                     </li>
 
-                    <!-- TERRARIO -->
                     <li>
                         <div class="menu-item-head">TERRARIO <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -62,7 +70,6 @@
                         </ul>
                     </li>
 
-                    <!-- INFO -->
                     <li>
                         <div class="menu-item-head">INFORMACIÓN <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -72,7 +79,6 @@
                         </ul>
                     </li>
 
-                    <!-- JUEGOS -->
                     <li>
                         <div class="menu-item-head">JUEGOS <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -81,47 +87,52 @@
                     </li>
                 </ul>
             </div>
+
+            <!-- Iconos de la derecha -->
             <div class="iconos">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <a href="login.html" id="login-btn-header" style="color: white; text-decoration: none; margin: 0 10px;">
+                <a href="login.html" id="login-btn-header">
                     <i class="fa-solid fa-user"></i>
                 </a>
             </div>
         </nav>
     </header>
 
+    <!-- Contenido principal -->
     <main class="contenedor">
-        <section class="seccion"
-            style="height: auto; padding: 40px; max-width: 500px; margin: 40px auto; text-align: center;">
+        <section class="seccion" style="max-width: 500px; margin: 40px auto; text-align: center;">
             <h2 class="titulo-seccion">Registro de Usuario</h2>
+
+            <!-- Formulario de registro -->
             <form id="registerForm" enctype="multipart/form-data"
                 style="display: flex; flex-direction: column; gap: 15px;">
-                <input type="text" id="name" name="name" placeholder="Nombre" required
-                    style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                <input type="text" id="lastname" name="lastname" placeholder="Apellido" required
-                    style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                <input type="text" id="username" name="username" placeholder="Usuario" required
-                    style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                <input type="password" id="password" name="password" placeholder="Contraseña" required
-                    style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
-                <input type="password" id="confirm_password" placeholder="Confirmar Contraseña" required
-                    style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
 
-                <label style="text-align: left; font-size: 0.9em; color: #555;">Foto de Perfil (Opcional):</label>
-                <input type="file" id="photo" name="photo" accept="image/*"
-                    style="padding: 10px; border: 1px solid #ccc;">
+                <!-- Datos básicos -->
+                <input type="text" id="name" name="name" placeholder="Nombre" required>
+                <input type="text" id="lastname" name="lastname" placeholder="Apellido" required>
+                <input type="text" id="username" name="username" placeholder="Usuario" required>
 
-                <button type="submit" class="boton-caja"
-                    style="width: 100%; height: auto; padding: 10px; background: var(--verde-oscuro); color: white; border: none; cursor: pointer;">Registrarse</button>
+                <!-- Contraseñas -->
+                <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                <input type="password" id="confirm_password" placeholder="Confirmar Contraseña" required>
+
+                <!-- Foto opcional -->
+                <label>Foto de Perfil (Opcional):</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+
+                <!-- Envío -->
+                <button type="submit" class="boton-caja">Registrarse</button>
             </form>
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
-        <img src="imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
+        <img src="imagenes/logo.png" alt="Zooplanet Logo">
         <p>Zooplanet © 2025</p>
     </footer>
 
+    <!-- Script de registro -->
     <script src="register.js"></script>
 </body>
 
