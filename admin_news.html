@@ -2,115 +2,114 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zooplanet - Gestión Noticias</title>
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="CSS/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8"> <!-- Codificación -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive -->
+    <title>Zooplanet - Gestión Noticias</title> <!-- Título -->
+    <link rel="stylesheet" href="normalize.css"> <!-- Normalize CSS -->
+    <link rel="stylesheet" href="CSS/styles.css"> <!-- Estilos principales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!-- Iconos FA -->
     <style>
         /* Reusing consistent admin styles */
         .main_container {
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
+            padding: 20px; /* Padding */
+            max-width: 800px; /* Ancho máximo */
+            margin: 0 auto; /* Centrado */
         }
 
         .title {
-            text-align: center;
-            font-size: 2rem;
-            color: var(--verde-oscuro);
-            margin-bottom: 20px;
-            font-weight: bold;
+            text-align: center; /* Centrar texto */
+            font-size: 2rem; /* Tamaño texto */
+            color: var(--verde-oscuro); /* Color */
+            margin-bottom: 20px; /* Separación */
+            font-weight: bold; /* Negrita */
         }
 
         .formulario {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: #fff; /* Fondo */
+            padding: 20px; /* Padding */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
         }
 
         .input_container {
-            margin-bottom: 15px;
+            margin-bottom: 15px; /* Espaciado inputs */
         }
 
         .input_container label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-            color: #555;
+            display: block; /* Bloque */
+            margin-bottom: 5px; /* Separación */
+            font-weight: bold; /* Negrita */
+            color: #555; /* Color gris */
         }
 
         .input_container input,
         .input_container textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
+            width: 100%; /* Ancho completo */
+            padding: 10px; /* Padding */
+            border: 1px solid #ccc; /* Borde */
+            border-radius: 5px; /* Bordes redondeados */
+            box-sizing: border-box; /* Box sizing */
         }
 
         .input_container_button {
-            text-align: center;
-            margin-top: 20px;
+            text-align: center; /* Centrar botón */
+            margin-top: 20px; /* Separación */
         }
 
         .input_container_button button {
-            background: var(--verde-oscuro);
-            color: white;
-            padding: 10px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
+            background: var(--verde-oscuro); /* Fondo */
+            color: white; /* Texto blanco */
+            padding: 10px 30px; /* Padding */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondeados */
+            cursor: pointer; /* Cursor */
+            font-size: 1rem; /* Tamaño texto */
         }
 
         /* News List Card Styles */
         .news-card {
-            display: flex;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            overflow: hidden;
-            border: 1px solid #eee;
-            height: 150px;
+            display: flex; /* Flex layout */
+            background: #fff; /* Fondo */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
+            margin-bottom: 20px; /* Separación */
+            overflow: hidden; /* Ocultar overflow */
+            border: 1px solid #eee; /* Borde ligero */
+            height: 150px; /* Altura */
         }
 
         .news-left {
-            width: 150px;
-            flex-shrink: 0;
-            background: #f4f4f4;
+            width: 150px; /* Ancho imagen */
+            flex-shrink: 0; /* No encoger */
+            background: #f4f4f4; /* Fondo gris */
         }
 
         .news-left img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 100%; /* Ancho */
+            height: 100%; /* Alto */
+            object-fit: cover; /* Ajustar imagen */
         }
 
         .news-right {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
+            flex: 1; /* Expandir */
+            padding: 15px; /* Padding */
+            overflow-y: auto; /* Scroll vertical */
         }
 
         .news-right h3 {
-            margin: 0 0 5px 0;
-            color: var(--verde-oscuro);
-            font-size: 1.1rem;
+            margin: 0 0 5px 0; /* Margen */
+            color: var(--verde-oscuro); /* Color */
+            font-size: 1.1rem; /* Tamaño */
         }
 
         .news-right p {
-            font-size: 0.9rem;
-            color: #666;
-            margin: 0;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            font-size: 0.9rem; /* Tamaño */
+            color: #666; /* Color gris */
+            margin: 0; /* Sin margen */
+            display: -webkit-box; /* Truncar texto */
+            -webkit-line-clamp: 3; /* Líneas max */
+            -webkit-box-orient: vertical; /* Vertical */
+            overflow: hidden; /* Ocultar overflow */
         }
     </style>
 </head>
@@ -119,24 +118,22 @@
     <header>
         <nav class="nav">
             <div class="nav-left">
-                <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i>
-                <h1 class="titulo">ZOOPLANET - ADMIN NEWS</h1>
+                <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i> <!-- Icono menú -->
+                <h1 class="titulo">ZOOPLANET - ADMIN NEWS</h1> <!-- Título nav -->
             </div>
-
 
             <div id="menu" class="menu-oculto">
                 <div class="menu-top">
-                    <i class="fa-solid fa-xmark menu-close-btn" id="menu-close-btn"></i>
+                    <i class="fa-solid fa-xmark menu-close-btn" id="menu-close-btn"></i> <!-- Cerrar menú -->
                     <div class="menu-logo-circle">
-                        <img src="imagenes/paz.png" alt="Zoo Logo">
+                        <img src="imagenes/paz.png" alt="Zoo Logo"> <!-- Logo -->
                     </div>
-                    
                 </div>
 
                 <ul class="menu-list">
                     <!-- ZOO -->
                     <li>
-                        <div class="menu-item-head">ZOO <i class="fa-solid fa-plus"></i></div>
+                        <div class="menu-item-head">ZOO <i class="fa-solid fa-plus"></i></div> <!-- Sección ZOO -->
                         <ul class="sub-menu">
                             <li><a href="ZOO/carnivoros.html">CARNÍVOROS</a></li>
                             <li><a href="ZOO/herbivoros.html">HERBÍVOROS</a></li>
@@ -146,7 +143,7 @@
 
                     <!-- ACUARIO -->
                     <li>
-                        <div class="menu-item-head">ACUARIO <i class="fa-solid fa-plus"></i></div>
+                        <div class="menu-item-head">ACUARIO <i class="fa-solid fa-plus"></i></div> <!-- Sección ACUARIO -->
                         <ul class="sub-menu">
                             <li><a href="Mares_y_oceanos/oceano_pacifico.html">PACÍFICO</a></li>
                             <li><a href="Mares_y_oceanos/oceano_atlantico.html">ATLÁNTICO</a></li>
@@ -157,7 +154,7 @@
 
                     <!-- TERRARIO -->
                     <li>
-                        <div class="menu-item-head">TERRARIO <i class="fa-solid fa-plus"></i></div>
+                        <div class="menu-item-head">TERRARIO <i class="fa-solid fa-plus"></i></div> <!-- Sección TERRARIO -->
                         <ul class="sub-menu">
                             <li><a href="TERRARIO/insectos.html">INSECTOS</a></li>
                             <li><a href="TERRARIO/reptiles.html">REPTILES</a></li>
@@ -166,7 +163,7 @@
 
                     <!-- INFO -->
                     <li>
-                        <div class="menu-item-head">INFORMACIÓN <i class="fa-solid fa-plus"></i></div>
+                        <div class="menu-item-head">INFORMACIÓN <i class="fa-solid fa-plus"></i></div> <!-- Sección INFO -->
                         <ul class="sub-menu">
                             <li><a href="noticias.html">NOTICIAS</a></li>
                             <li><a href="ONG/ong1.html">ONGs</a></li>
@@ -176,7 +173,7 @@
 
                     <!-- JUEGOS -->
                     <li>
-                        <div class="menu-item-head">JUEGOS <i class="fa-solid fa-plus"></i></div>
+                        <div class="menu-item-head">JUEGOS <i class="fa-solid fa-plus"></i></div> <!-- Sección JUEGOS -->
                         <ul class="sub-menu">
                             <li><a href="juegos.html">KAHOOT</a></li>
                         </ul>
@@ -186,56 +183,54 @@
             <div class="iconos">
                 <a href="developer.html"
                     style="color: white; font-size: 1.2rem; margin-right: 15px; text-decoration: none;">
-                    <i class="fa-solid fa-arrow-left"></i> Volver
+                    <i class="fa-solid fa-arrow-left"></i> Volver <!-- Botón volver -->
                 </a>
             </div>
         </nav>
     </header>
 
     <div class="main_container">
-        <div class="title">GESTIÓN DE NOTICIAS</div>
+        <div class="title">GESTIÓN DE NOTICIAS</div> <!-- Título página -->
 
         <div class="formulario">
             <!-- Formulario -->
             <form id="newsForm" enctype="multipart/form-data">
                 <div class="input_container">
                     <label>Título</label>
-                    <input type="text" name="title" required>
+                    <input type="text" name="title" required> <!-- Input título -->
                 </div>
                 <div class="input_container">
                     <label>Subtítulo</label>
-                    <input type="text" name="subtitle">
+                    <input type="text" name="subtitle"> <!-- Input subtítulo -->
                 </div>
                 <div class="input_container">
                     <label>Contenido</label>
-                    <textarea name="content" rows="4" required></textarea>
+                    <textarea name="content" rows="4" required></textarea> <!-- Input contenido -->
                 </div>
                 <div class="input_container">
                     <label>Imagen Principal</label>
-                    <input type="file" name="mainImage" accept="image/*">
+                    <input type="file" name="mainImage" accept="image/*"> <!-- Input imagen -->
                 </div>
-                <!-- Añadir más campos si es necesario -->
 
                 <div class="input_container_button">
-                    <button type="submit">PUBLICAR NOTICIA</button>
+                    <button type="submit">PUBLICAR NOTICIA</button> <!-- Botón enviar -->
                 </div>
             </form>
 
             <h2 style="margin-top: 40px; border-bottom: 2px solid #eee; padding-bottom: 10px;">Lista de Noticias</h2>
             <div id="news-list">
-                <p>Cargando...</p>
+                <p>Cargando...</p> <!-- Contenedor noticias -->
             </div>
         </div>
     </div>
 
     <footer class="footer">
-        <img src="imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
-        <p>Zooplanet © 2025</p>
+        <img src="imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;"> <!-- Logo footer -->
+        <p>Zooplanet © 2025</p> <!-- Copyright -->
     </footer>
 
-    <script src="menu.js"></script>
-    <script src="admin_news.js"></script>
+    <script src="menu.js"></script> <!-- Script menú -->
+    <script src="admin_news.js"></script> <!-- Script noticias -->
 </body>
-
 
 </html>
