@@ -1,46 +1,49 @@
-const API_BASE = '/api'; // Backend relativo (funciona local y en Azure)
+// URL base del API, relativa (funciona local y en Azure)
+const API_BASE = '/api';
 
-const API_KEY = 'f447cd5956f8e91962cb965ebd9ab3e5666ba6a8b74d31bfa3ea1f2b277aee8d'; //API KEY del backend
+// API Key para autenticación en el backend
+const API_KEY = 'f447cd5956f8e91962cb965ebd9ab3e5666ba6a8b74d31bfa3ea1f2b277aee8d';
 
-// Estado
+// Estado global: ID del registro que se está editando (null si no hay edición)
 let editingId = null;
 
-// Helpers
-const q = (id) => document.getElementById(id);
-const val = (id) => (q(id)?.value ?? '').trim();
-const toIntOrNull = s => (s && s.trim() !== '' ? parseInt(s, 10) : null);
-function toNullIfEmpty(s) { if (s == null) return null; const t = String(s).trim(); return t === '' ? null : t; }
-function normId(p) {
+// Helpers para seleccionar elementos y valores
+const q = (id) => document.getElementById(id); // Selector por ID
+const val = (id) => (q(id)?.value ?? '').trim(); // Valor de input, sin espacios
+const toIntOrNull = s => (s && s.trim() !== '' ? parseInt(s, 10) : null); // Convierte a entero o null
+function toNullIfEmpty(s) { if (s == null) return null; const t = String(s).trim(); return t === '' ? null : t; } // null si vacío
+function normId(p) { // Normaliza el ID de un objeto (MongoDB, string u objeto)
   if (!p || !p._id) return null;
   if (typeof p._id === 'string') return p._id;
   if (typeof p._id === 'object' && p._id.$oid) return p._id.$oid;
   try { return String(p._id); } catch { return null; }
 }
 
-// Fetch con headers
+// Fetch al API con headers (JSON + API Key)
 async function apiFetch(path, options = {}) {
   const res = await fetch(`${API_BASE}${path}`, {
     ...options,
     headers: { 'Content-Type': 'application/json', 'x-api-key': API_KEY, ...(options.headers || {}) }
   });
-  if (!res.ok) {
+  if (!res.ok) { // Manejo de errores
     const msg = await res.text().catch(() => 'Error');
     throw new Error(msg || 'Error de red');
   }
-  return res.status !== 204 ? res.json() : null;
+  return res.status !== 204 ? res.json() : null; // Devuelve JSON o null si 204
 }
 
-// Renderizar foto principal para overlay
+// Renderiza la foto principal de la mascota en el overlay
 async function renderOverlayPhoto(pet, container) {
   container.innerHTML = '';
   let url = null;
-  // 1. Intentar buscar en el objeto mismo
+
+  // 1. Buscar foto en el objeto mismo
   if (Array.isArray(pet.photos) && pet.photos.length > 0) {
     const found = pet.photos.find(ph => ph && ph.url);
     if (found) url = found.url;
   }
 
-  // 2. Si no, fetch
+  // 2. Si no hay, hacer fetch de fotos
   if (!url) {
     const id = normId(pet);
     if (id) {
@@ -56,6 +59,7 @@ async function renderOverlayPhoto(pet, container) {
     }
   }
 
+  // Renderizar la imagen o texto de "Sin imagen"
   if (url) {
     const img = document.createElement('img');
     img.src = url;
@@ -66,7 +70,7 @@ async function renderOverlayPhoto(pet, container) {
   }
 }
 
-// Cargar lista con diseño Overlay
+// Cargar lista de mascotas y renderizar como overlay cards
 async function cargarLista() {
   try {
     const data = await apiFetch('/pets', { method: 'GET' });
@@ -82,14 +86,13 @@ async function cargarLista() {
       // -- IZQUIERDA: FOTO --
       const left = document.createElement('div');
       left.className = 'pet-overlay-left';
-      // Carga asíncrona de la foto
-      renderOverlayPhoto(p, left);
+      renderOverlayPhoto(p, left); // Carga asíncrona de la foto
 
       // -- DERECHA: INFO --
       const right = document.createElement('div');
       right.className = 'pet-overlay-right';
 
-      // CABECERA (Nombre + Botones)
+      // CABECERA: nombre + botones
       const headerRow = document.createElement('div');
       headerRow.className = 'pet-header-row';
 
@@ -101,10 +104,12 @@ async function cargarLista() {
       const actions = document.createElement('div');
       actions.className = 'pet-actions';
 
+      // Botón de edición
       const editBtn = document.createElement('button');
       editBtn.textContent = 'Editar';
       editBtn.onclick = () => startEdit(p);
 
+      // Botón de eliminación
       const delBtn = document.createElement('button');
       delBtn.textContent = 'Eliminar';
       delBtn.onclick = async () => {
@@ -126,11 +131,11 @@ async function cargarLista() {
       headerRow.appendChild(titleBlock);
       headerRow.appendChild(actions);
 
-      // DATOS (Grid)
+      // GRID DE DATOS
       const grid = document.createElement('div');
       grid.className = 'pet-data-grid';
 
-      // Helper para items
+      // Función helper para añadir datos al grid
       const addItem = (label, val) => {
         if (!val) return;
         const div = document.createElement('div');
@@ -140,7 +145,6 @@ async function cargarLista() {
       };
 
       addItem('Grupo', p.grupo);
-
       addItem('Clase', p.clase);
       addItem('Familia', p.familia);
       addItem('Dieta', p.dieta);
@@ -165,7 +169,7 @@ async function cargarLista() {
   }
 }
 
-// Construir payload JSON
+// Construir payload JSON desde el formulario
 function buildJsonPayloadFromForm() {
   return {
     nombre_cientifico: val('nombre_cientifico'),
@@ -176,20 +180,20 @@ function buildJsonPayloadFromForm() {
     clase: val('clase'),
     familia: val('familia'),
     dieta: val('dieta'),
-    esperanza: val('esperanza'), // <-- coincidencia exacta
+    esperanza: val('esperanza'),
     distribucion: val('distribucion'),
     habitat: val('habitat'),
-    estado_extincion: val('estado_extincion'), // <-- ID corregido, era estado-extincion
+    estado_extincion: val('estado_extincion'),
     grupo: val('grupo')
   };
 }
 
-
-// Enviar formulario
+// Manejar envío de formulario
 async function onSubmitForm(ev) {
-  ev.preventDefault();
+  ev.preventDefault(); // Evita reload
+
   const btn = q('upload-button');
-  btn.disabled = true;
+  btn.disabled = true; // Deshabilitar botón mientras se procesa
 
   try {
     if (!val('nombre') || !val('nombre_cientifico')) {
@@ -197,6 +201,7 @@ async function onSubmitForm(ev) {
       return;
     }
 
+    // Si estamos editando
     if (editingId) {
       const payload = buildJsonPayloadFromForm();
       await apiFetch(`/pets/${editingId}`, {
@@ -209,8 +214,9 @@ async function onSubmitForm(ev) {
       return;
     }
 
+    // Crear nuevo registro con FormData (para archivos)
     const fd = new FormData();
-    for (const key of ['nombre_cientifico', 'nombre', 'tamaño', 'peso', 'rasgos', 'clase', 'familia', 'dieta', 'esperanza', 'distribucion', 'habitat', 'estado_extincion', 'grupo']) {
+    for (const key of ['nombre_cientifico','nombre','tamaño','peso','rasgos','clase','familia','dieta','esperanza','distribucion','habitat','estado_extincion','grupo']) {
       fd.append(key, val(key));
     }
 
@@ -237,23 +243,27 @@ async function onSubmitForm(ev) {
   }
 }
 
-// Reset formulario
+// Reset del formulario a estado inicial
 function resetForm() {
   q('alta_pet')?.reset();
   editingId = null;
+
   const label = document.querySelector('#upload-button label');
   if (label) label.textContent = 'GUARDAR';
+
   q('cancel-edit').style.display = 'none';
+
   const title = document.querySelector('.title');
   if (title) title.textContent = 'UPLOAD PET';
 }
 
-// Rellenar formulario para edición
+// Rellenar formulario para edición de mascota
 function startEdit(p) {
   const id = normId(p);
   if (!id) return alert('ID no válido');
   editingId = id;
 
+  // Asignar valores a cada input
   q('nombre_cientifico').value = p.nombreCientifico || '';
   q('nombre').value = p.nombre || '';
   q('tamaño').value = p.tamaño || '';
@@ -268,19 +278,23 @@ function startEdit(p) {
   q('estado_extincion').value = p.estadoExtincion || '';
   q('grupo').value = p.grupo || '';
 
+  // Cambiar texto del botón a ACTUALIZAR
   const label = document.querySelector('#upload-button label');
   if (label) label.textContent = 'ACTUALIZAR';
+
   q('cancel-edit').style.display = 'inline-block';
+
   const title = document.querySelector('.title');
   if (title) title.textContent = 'EDIT PET';
 
+  // Enfocar primer input y scroll top
   q('nombre_cientifico').focus();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Arranque
+// Inicialización al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
-  cargarLista();
-  q('alta_pet')?.addEventListener('submit', onSubmitForm);
-  q('cancel-edit')?.addEventListener('click', resetForm);
+  cargarLista(); // Carga inicial de mascotas
+  q('alta_pet')?.addEventListener('submit', onSubmitForm); // Submit del formulario
+  q('cancel-edit')?.addEventListener('click', resetForm); // Cancelar edición
 });
