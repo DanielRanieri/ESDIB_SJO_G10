@@ -1,88 +1,150 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zooplanet</title>
 
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
-<header>
-    <nav class="nav">
-        <h1 class="titulo">ZOOPLANET</h1>
-
-        <div class="iconos">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i id="menu-btn" class="fa-solid fa-bars"></i>
-        </div>
-    </nav>
-
-    <ul id="menu" class="menu-oculto">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="zoo.html">Zoo</a></li>
-        <li><a href="acuario.html">Acuario</a></li>
-        <li><a href="terrario.html">Terrario</a></li>
-        <li><a href="noticias.html">Noticias</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-    </ul>
-</header>
+    <header>
+        <nav class="nav">
+            <div class="nav-left">
+                <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i>
+                <a href="../index.html" style="text-decoration:none; color:inherit;">
+                    <h1 class="titulo">ZOOPLANET</h1>
+                </a>
+            </div>
 
 
-<main class="contenedor">
-    <section class="banner-auto">
-    <div class="banner-track">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 1">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 2">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 3">
-    </div>
-</section>
+            <div id="menu" class="menu-oculto">
+                <div class="menu-top">
+                    <i class="fa-solid fa-xmark menu-close-btn" id="menu-close-btn"></i>
+                    <div class="menu-logo-circle">
+                        <img src="../imagenes/paz.png" alt="Zoo Logo">
+                    </div>
+                    
+                </div>
 
-<section class="ong-detalle">
+                <ul class="menu-list">
+                    <!-- ZOO -->
+                    <li>
+                        <div class="menu-item-head">ZOO <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="../ZOO/carnivoros.html">CARNÍVOROS</a></li>
+                            <li><a href="../ZOO/herbivoros.html">HERBÍVOROS</a></li>
+                            <li><a href="../ZOO/omnivoros.html">OMNÍVOROS</a></li>
+                        </ul>
+                    </li>
 
-    <img class="ong-imagen" src="imagenes/ongfauna_logo.png" alt="ONGfa">
+                    <!-- ACUARIO -->
+                    <li>
+                        <div class="menu-item-head">ACUARIO <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="../Mares_y_oceanos/oceano_pacifico.html">PACÍFICO</a></li>
+                            <li><a href="../Mares_y_oceanos/oceano_atlantico.html">ATLÁNTICO</a></li>
+                            <li><a href="../Mares_y_oceanos/mediterraneo.html">MEDITERRÁNEO</a></li>
+                            <li><a href="../Mares_y_oceanos/mares_tropicales.html">MARES TROPICALES</a></li>
+                        </ul>
+                    </li>
 
-    <div class="ong-titulo-contenedor">
-        <h1 class="ong-titulo">ONG fauna verso</h1>
-    </div>
+                    <!-- TERRARIO -->
+                    <li>
+                        <div class="menu-item-head">TERRARIO <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="../TERRARIO/insectos.html">INSECTOS</a></li>
+                            <li><a href="../TERRARIO/reptiles.html">REPTILES</a></li>
+                        </ul>
+                    </li>
 
-    <div class="ong-info-contenedor">
-        <p class="ong-info">
-            En nuestra ONG, nos comprometemos a contribuir al desarrollo de proyectos 
-            que conserven y mejoren el medio ambiente, al tiempo que brindamos refugio 
-            y cuidado a los animales en nuestras instalaciones. Nuestro principal objetivo 
-            es crear conciencia y fomentar prácticas sostenibles que permitan a las personas 
-            conectarse con la naturaleza y comprender la importancia de preservarla.
+                    <!-- INFO -->
+                    <li>
+                        <div class="menu-item-head">INFORMACIÓN <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="../noticias.html">NOTICIAS</a></li>
+                            <li><a href="../ONG/ong1.html">ONGs</a></li>
+                            <li><a href="../nosotros.html">NOSOTROS</a></li>
+                        </ul>
+                    </li>
 
-            Nos centramos en la educación ambiental, creando programas y actividades que informen, inspiren y 
-            empoderen a las personas a tomar acciones responsables para proteger el medio ambiente. Además, promovemos 
-            la investigación y la ciencia ciudadana, involucrando a la comunidad en la recopilación de datos y el 
-            análisis para comprender mejor nuestro entorno y tomar decisiones basadas en evidencias.
+                    <!-- JUEGOS -->
+                    <li>
+                        <div class="menu-item-head">JUEGOS <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="../juegos.html">KAHOOT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="iconos">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <a href="../login.html" id="login-btn-header"
+                    style="color: white; text-decoration: none; margin: 0 10px;">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
 
-            Con nuestro trabajo, buscamos generar un cambio positivo en la sociedad, fomentando una mayor apreciación 
-            por la naturaleza y los animales, y promoviendo un estilo de vida más sostenible y respetuoso con el entorno. 
-            Trabajamos de la mano con otras organizaciones, colaboradores y voluntarios para maximizar nuestro impacto y 
-            construir un futuro mejor para las generaciones venideras.
-        </p>
-    </div>
 
-    <a class="boton-donar" href="https://ongfaunaverso.org" target="_blank">
-        Donar
-    </a>
+    <main class="contenedor">
+        <!-- Banner Removed -->
 
-</section>
+        <section class="ong-detalle">
 
-</main>
+            <img class="ong-imagen" src="imagenes/ongfauna_logo.png" alt="Fauna Verso Logo">
 
-<footer class="footer">
-    <p>Zooplanet © 2025</p>
-</footer>
+            <div class="ong-titulo-contenedor">
+                <h1 class="ong-titulo">ONG fauna verso</h1>
+            </div>
 
-<script src="menu.js"></script>
-<script src="carrusel.js"></script>
+            <div class="ong-info-contenedor">
+                <p class="ong-info">
+                    En nuestra ONG, nos comprometemos a contribuir al desarrollo de proyectos
+                    que conserven y mejoren el medio ambiente, al tiempo que brindamos refugio
+                    y cuidado a los animales en nuestras instalaciones. Nuestro principal objetivo
+                    es crear conciencia y fomentar prácticas sostenibles que permitan a las personas
+                    conectarse con la naturaleza y comprender la importancia de preservarla.
+
+                    Nos centramos en la educación ambiental, creando programas y actividades que informen, inspiren y
+                    empoderen a las personas a tomar acciones responsables para proteger el medio ambiente. Además,
+                    promovemos
+                    la investigación y la ciencia ciudadana, involucrando a la comunidad en la recopilación de datos y
+                    el
+                    análisis para comprender mejor nuestro entorno y tomar decisiones basadas en evidencias.
+
+                    Con nuestro trabajo, buscamos generar un cambio positivo en la sociedad, fomentando una mayor
+                    apreciación
+                    por la naturaleza y los animales, y promoviendo un estilo de vida más sostenible y respetuoso con el
+                    entorno.
+                    Trabajamos de la mano con otras organizaciones, colaboradores y voluntarios para maximizar nuestro
+                    impacto y
+                    construir un futuro mejor para las generaciones venideras.
+                </p>
+            </div>
+
+            <a class="boton-donar" href="https://ongfaunaverso.org" target="_blank">
+                Donar
+            </a>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <img src="../imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
+        <p>Zooplanet © 2025</p>
+    </footer>
+
+    <script src="../menu.js"></script>
+
 
 </body>
+
 </html>

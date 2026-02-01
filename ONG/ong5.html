@@ -1,92 +1,149 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zooplanet</title>
 
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
-<header>
-    <nav class="nav">
-        <h1 class="titulo">ZOOPLANET</h1>
-
-        <div class="iconos">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i id="menu-btn" class="fa-solid fa-bars"></i>
-        </div>
-    </nav>
-
-    <ul id="menu" class="menu-oculto">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="zoo.html">Zoo</a></li>
-        <li><a href="acuario.html">Acuario</a></li>
-        <li><a href="terrario.html">Terrario</a></li>
-        <li><a href="noticias.html">Noticias</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-    </ul>
-</header>
+    <header>
+        <nav class="nav">
+            <div class="nav-left">
+                <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i>
+                <a href="../index.html" style="text-decoration:none; color:inherit;">
+                    <h1 class="titulo">ZOOPLANET</h1>
+                </a>
+            </div>
 
 
-<main class="contenedor">
-    <section class="banner-auto">
-    <div class="banner-track">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 1">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 2">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 3">
-    </div>
-</section>
+            <div id="menu" class="menu-oculto">
+                <div class="menu-top">
+                    <i class="fa-solid fa-xmark menu-close-btn" id="menu-close-btn"></i>
+                    <div class="menu-logo-circle">
+                        <img src="../imagenes/paz.png" alt="Zoo Logo">
+                    </div>
+                    
+                </div>
 
-<section class="ong-detalle">
+                <ul class="menu-list">
+                    <!-- ZOO -->
+                    <li>
+                        <div class="menu-item-head">ZOO <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="../ZOO/carnivoros.html">CARNÍVOROS</a></li>
+                            <li><a href="../ZOO/herbivoros.html">HERBÍVOROS</a></li>
+                            <li><a href="../ZOO/omnivoros.html">OMNÍVOROS</a></li>
+                        </ul>
+                    </li>
 
-    <img class="ong-imagen" src="imagenes/ciwi_logo.jpg" alt="ciwy">
+                    <!-- ACUARIO -->
+                    <li>
+                        <div class="menu-item-head">ACUARIO <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="../Mares_y_oceanos/oceano_pacifico.html">PACÍFICO</a></li>
+                            <li><a href="../Mares_y_oceanos/oceano_atlantico.html">ATLÁNTICO</a></li>
+                            <li><a href="../Mares_y_oceanos/mediterraneo.html">MEDITERRÁNEO</a></li>
+                            <li><a href="../Mares_y_oceanos/mares_tropicales.html">MARES TROPICALES</a></li>
+                        </ul>
+                    </li>
 
-    <div class="ong-titulo-contenedor">
-        <h1 class="ong-titulo">Comunidad inti wara yassi</h1>
-    </div>
+                    <!-- TERRARIO -->
+                    <li>
+                        <div class="menu-item-head">TERRARIO <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="../TERRARIO/insectos.html">INSECTOS</a></li>
+                            <li><a href="../TERRARIO/reptiles.html">REPTILES</a></li>
+                        </ul>
+                    </li>
 
-    <div class="ong-info-contenedor">
-        <p class="ong-info">
-           Comunidad Inti Wara Yassi (CIWY) es una organización no gubernamental boliviana 
-           dedicada a la conservación de la vida silvestre, especializada en el rescate, 
-           rehabilitación y cuidado de animales salvajes que han sido víctimas del tráfico 
-           ilegal y de otros tipos de daño.
+                    <!-- INFO -->
+                    <li>
+                        <div class="menu-item-head">INFORMACIÓN <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="../noticias.html">NOTICIAS</a></li>
+                            <li><a href="../ONG/ong1.html">ONGs</a></li>
+                            <li><a href="../nosotros.html">NOSOTROS</a></li>
+                        </ul>
+                    </li>
 
-            Como la principal organización de Bolivia en la lucha por los derechos de los animales 
-            y el cuidado de la fauna silvestre, CIWY trabaja para combatir el tráfico ilegal de vida 
-            silvestre y la destrucción del medio ambiente. Colaboramos con las autoridades bolivianas 
-            para hacer cumplir la ley, decomisar y rescatar animales de cazadores furtivos y comerciantes, 
-            así como de zoológicos cuando las condiciones no cumplen con los requisitos legales.
+                    <!-- JUEGOS -->
+                    <li>
+                        <div class="menu-item-head">JUEGOS <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="../juegos.html">KAHOOT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="iconos">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <a href="../login.html" id="login-btn-header"
+                    style="color: white; text-decoration: none; margin: 0 10px;">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
 
-            CIWY combate el tráfico ilegal de vida silvestre y la destrucción del entorno natural mediante 
-            acción directa, programas educativos y proyectos de investigación. En sus santuarios de vida 
-            silvestre en la Amazonía boliviana, CIWY rehabilita y cuida animales salvajes rescatados del 
-            tráfico ilegal, incendios forestales y otras situaciones perjudiciales. CIWY protege más de 
-            1000 hectáreas de selva virgen frente a la caza furtiva, la tala, la minería y los incendios.
 
-            A través de este trabajo, buscamos inspirar a la humanidad a defender valores que promuevan 
-            la conservación y la recuperación de la biodiversidad. 
-        </p>
-    </div>
+    <main class="contenedor">
+        <!-- Banner Removed -->
 
-    <a class="boton-donar" href="https://www.intiwarayassi.org" target="_blank">
-        Donar
-    </a>
+        <section class="ong-detalle">
 
-</section>
+            <img class="ong-imagen" src="imagenes/ciwi_logo.jpg" alt="CIWY Logo">
 
-</main>
+            <div class="ong-titulo-contenedor">
+                <h1 class="ong-titulo">Comunidad inti wara yassi</h1>
+            </div>
 
-<footer class="footer">
-    <p>Zooplanet © 2025</p>
-</footer>
+            <div class="ong-info-contenedor">
+                <p class="ong-info">
+                    Comunidad Inti Wara Yassi (CIWY) es una organización no gubernamental boliviana
+                    dedicada a la conservación de la vida silvestre, especializada en el rescate,
+                    rehabilitación y cuidado de animales salvajes que han sido víctimas del tráfico
+                    ilegal y de otros tipos de daño.
 
-<script src="menu.js"></script>
-<script src="carrusel.js"></script>
+                    Como la principal organización de Bolivia en la lucha por los derechos de los animales
+                    y el cuidado de la fauna silvestre, CIWY trabaja para combatir el tráfico ilegal de vida
+                    silvestre y la destrucción del medio ambiente. Colaboramos con las autoridades bolivianas
+                    para hacer cumplir la ley, decomisar y rescatar animales de cazadores furtivos y comerciantes,
+                    así como de zoológicos cuando las condiciones no cumplen con los requisitos legales.
+
+                    CIWY combate el tráfico ilegal de vida silvestre y la destrucción del entorno natural mediante
+                    acción directa, programas educativos y proyectos de investigación. En sus santuarios de vida
+                    silvestre en la Amazonía boliviana, CIWY rehabilita y cuida animales salvajes rescatados del
+                    tráfico ilegal, incendios forestales y otras situaciones perjudiciales. CIWY protege más de
+                    1000 hectáreas de selva virgen frente a la caza furtiva, la tala, la minería y los incendios.
+
+                    A través de este trabajo, buscamos inspirar a la humanidad a defender valores que promuevan
+                    la conservación y la recuperación de la biodiversidad.
+                </p>
+            </div>
+
+            <a class="boton-donar" href="https://www.intiwarayassi.org" target="_blank">
+                Donar
+            </a>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <img src="../imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
+        <p>Zooplanet © 2025</p>
+    </footer>
+
+    <script src="../menu.js"></script>
+
 
 </body>
+
 </html>

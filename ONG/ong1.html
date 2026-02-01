@@ -1,90 +1,147 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zooplanet</title>
 
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../CSS/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
-<header>
-    <nav class="nav">
-        <h1 class="titulo">ZOOPLANET</h1>
-
-        <div class="iconos">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i id="menu-btn" class="fa-solid fa-bars"></i>
-        </div>
-    </nav>
-
-    <ul id="menu" class="menu-oculto">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="zoo.html">Zoo</a></li>
-        <li><a href="acuario.html">Acuario</a></li>
-        <li><a href="terrario.html">Terrario</a></li>
-        <li><a href="noticias.html">Noticias</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-    </ul>
-</header>
+    <header>
+        <nav class="nav">
+            <div class="nav-left">
+                <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i>
+                <a href="../index.html" style="text-decoration:none; color:inherit;">
+                    <h1 class="titulo">ZOOPLANET</h1>
+                </a>
+            </div>
 
 
-<main class="contenedor">
-    <section class="banner-auto">
-    <div class="banner-track">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 1">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 2">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 3">
-    </div>
-</section>
+            <div id="menu" class="menu-oculto">
+                <div class="menu-top">
+                    <i class="fa-solid fa-xmark menu-close-btn" id="menu-close-btn"></i>
+                    <div class="menu-logo-circle">
+                        <img src="../imagenes/paz.png" alt="Zoo Logo">
+                    </div>
+                    
+                </div>
 
-<section class="ong-detalle">
+                <ul class="menu-list">
+                    <!-- ZOO -->
+                    <li>
+                        <div class="menu-item-head">ZOO <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="../ZOO/carnivoros.html">CARNÍVOROS</a></li>
+                            <li><a href="../ZOO/herbivoros.html">HERBÍVOROS</a></li>
+                            <li><a href="../ZOO/omnivoros.html">OMNÍVOROS</a></li>
+                        </ul>
+                    </li>
 
-    <img class="ong-imagen" src="imagenes/wwf_logo.jpg" alt="WWF">
+                    <!-- ACUARIO -->
+                    <li>
+                        <div class="menu-item-head">ACUARIO <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="../Mares_y_oceanos/oceano_pacifico.html">PACÍFICO</a></li>
+                            <li><a href="../Mares_y_oceanos/oceano_atlantico.html">ATLÁNTICO</a></li>
+                            <li><a href="../Mares_y_oceanos/mediterraneo.html">MEDITERRÁNEO</a></li>
+                            <li><a href="../Mares_y_oceanos/mares_tropicales.html">MARES TROPICALES</a></li>
+                        </ul>
+                    </li>
 
-    <div class="ong-titulo-contenedor">
-        <h1 class="ong-titulo">World Wildlife Fund</h1>
-    </div>
+                    <!-- TERRARIO -->
+                    <li>
+                        <div class="menu-item-head">TERRARIO <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="../TERRARIO/insectos.html">INSECTOS</a></li>
+                            <li><a href="../TERRARIO/reptiles.html">REPTILES</a></li>
+                        </ul>
+                    </li>
 
-    <div class="ong-info-contenedor">
-        <p class="ong-info">
-           WWF fue fundada en 1961 por un grupo de personas apasionadas y comprometidas que 
-           buscaban asegurar la financiación necesaria para proteger lugares y especies que 
-           estaban amenazados por el desarrollo humano.
+                    <!-- INFO -->
+                    <li>
+                        <div class="menu-item-head">INFORMACIÓN <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="../noticias.html">NOTICIAS</a></li>
+                            <li><a href="../ONG/ong1.html">ONGs</a></li>
+                            <li><a href="../nosotros.html">NOSOTROS</a></li>
+                        </ul>
+                    </li>
 
-            Inspirado por una serie de artículos en un periódico del Reino Unido, escritos 
-            por Sir Julian Huxley sobre la destrucción del hábitat y la fauna en África Oriental, 
-            el empresario Victor Stolan señaló la urgente necesidad de una organización internacional 
-            que recaudara fondos para la conservación. La idea fue compartida con Max Nicholson, 
-            Director General de la agencia gubernamental británica Nature Conservancy, quien asumió 
-            el desafío con entusiasmo.
+                    <!-- JUEGOS -->
+                    <li>
+                        <div class="menu-item-head">JUEGOS <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="../juegos.html">KAHOOT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="iconos">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <a href="../login.html" id="login-btn-header"
+                    style="color: white; text-decoration: none; margin: 0 10px;">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
 
-            Nicholson estaba motivado en parte por las dificultades financieras que enfrentaba la 
-            Unión Internacional para la Conservación de la Naturaleza (UICN), y consideró que una nueva 
-            iniciativa de recaudación de fondos podría ayudar a la UICN y a otros grupos de conservación 
-            a llevar a cabo su misión. En abril de 1961 redactó un plan que sirvió como base para la 
-            fundación de WWF, el cual fue posteriormente respaldado por el consejo ejecutivo de la UICN 
-            en un documento conocido como el Manifiesto de Morges. 
-        </p>
-    </div>
 
-    <a class="boton-donar" href="https://www.worldwildlife.org" target="_blank">
-        Donar
-    </a>
+    <main class="contenedor">
+        <!-- Banner Removed (Missing Images) -->
 
-</section>
+        <section class="ong-detalle">
 
-</main>
+            <img class="ong-imagen" src="imagenes/wwf_logo.jpg" alt="WWF Logo">
 
-<footer class="footer">
-    <p>Zooplanet © 2025</p>
-</footer>
+            <div class="ong-titulo-contenedor">
+                <h1 class="ong-titulo">World Wildlife Fund</h1>
+            </div>
 
-<script src="menu.js"></script>
-<script src="carrusel.js"></script>
+            <div class="ong-info-contenedor">
+                <p class="ong-info">
+                    WWF fue fundada en 1961 por un grupo de personas apasionadas y comprometidas que
+                    buscaban asegurar la financiación necesaria para proteger lugares y especies que
+                    estaban amenazados por el desarrollo humano.
+
+                    Inspirado por una serie de artículos en un periódico del Reino Unido, escritos
+                    por Sir Julian Huxley sobre la destrucción del hábitat y la fauna en África Oriental,
+                    el empresario Victor Stolan señaló la urgente necesidad de una organización internacional
+                    que recaudara fondos para la conservación. La idea fue compartida con Max Nicholson,
+                    Director General de la agencia gubernamental británica Nature Conservancy, quien asumió
+                    el desafío con entusiasmo.
+
+                    Nicholson estaba motivado en parte por las dificultades financieras que enfrentaba la
+                    Unión Internacional para la Conservación de la Naturaleza (UICN), y consideró que una nueva
+                    iniciativa de recaudación de fondos podría ayudar a la UICN y a otros grupos de conservación
+                    a llevar a cabo su misión. En abril de 1961 redactó un plan que sirvió como base para la
+                    fundación de WWF, el cual fue posteriormente respaldado por el consejo ejecutivo de la UICN
+                    en un documento conocido como el Manifiesto de Morges.
+                </p>
+            </div>
+
+            <a class="boton-donar" href="https://www.worldwildlife.org" target="_blank">
+                Donar
+            </a>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <img src="../imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
+        <p>Zooplanet © 2025</p>
+    </footer>
+
+    <script src="../menu.js"></script>
+
 
 </body>
+
 </html>
