@@ -1,11 +1,20 @@
-// IMPORTANT: Set to full URL to allow different ports (e.g. Live Server on 5500 accessing Backend on 4000)
-const NEWS_API_BASE = '/api';
-// const NEWS_API_BASE = 'https://zoopedia.azurewebsites.net/api';
-const API_KEY = 'f447cd5956f8e91962cb965ebd9ab3e5666ba6a8b74d31bfa3ea1f2b277aee8d'; // From app.js
+// ============================
+// CONFIGURACIÓN API
+// ============================
 
+// URL base de la API. Se puede cambiar si usamos diferentes puertos en desarrollo
+const NEWS_API_BASE = '/api';
+// const NEWS_API_BASE = 'https://zoopedia.azurewebsites.net/api'; // Producción
+const API_KEY = 'f447cd5956f8e91962cb965ebd9ab3e5666ba6a8b74d31bfa3ea1f2b277aee8d'; // Clave de la API
+
+// Imagen por defecto si la noticia no tiene imagen
 const PLACEHOLDER_IMG = 'imagenes/news.png';
 
-// Helper to get ID
+// ============================
+// HELPERS
+// ============================
+
+// Obtiene el ID de la noticia (puede estar en n.id o n._id)
 function getNewsId(n) {
     if (!n) return null;
     if (n.id) return n.id;
@@ -17,7 +26,7 @@ function getNewsId(n) {
     return null;
 }
 
-// Global fetch helper
+// Fetch seguro con headers y manejo de errores
 async function safeFetch(url) {
     const res = await fetch(url, {
         headers: {
@@ -29,6 +38,7 @@ async function safeFetch(url) {
     return res;
 }
 
+// Obtener todas las noticias
 async function fetchNews() {
     try {
         const res = await safeFetch(`${NEWS_API_BASE}/news`);
@@ -40,6 +50,11 @@ async function fetchNews() {
     }
 }
 
+// ============================
+// CREAR TARJETAS DE NOTICIA
+// ============================
+
+// Tarjeta para lista de noticias
 function createNewsCard(item) {
     const id = getNewsId(item);
     if (!id) return '';
@@ -49,11 +64,10 @@ function createNewsCard(item) {
     const subtitle = item.subtitle || '';
     const date = item.date ? new Date(item.date).toLocaleDateString() : '';
 
-    // Create excerpt
+    // Resumen del contenido (primeros 150 caracteres)
     let excerpt = item.content || '';
     if (excerpt.length > 150) excerpt = excerpt.substring(0, 150) + '...';
 
-    // We link to noticias.html with ID query param
     return `
     <a href="noticias.html?id=${id}" class="news-card-dynamic">
         <div class="news-card-left">
@@ -69,15 +83,13 @@ function createNewsCard(item) {
     `;
 }
 
-// CAROUSEL CARD GENERATOR
-// CAROUSEL CARD GENERATOR
+// Tarjeta para carousel
 function createCarouselSlide(item) {
     const img = item.mainImageUrl || PLACEHOLDER_IMG;
     const title = item.title || 'Sin Título';
     const date = item.date ? new Date(item.date).toLocaleDateString() : '';
     let excerpt = item.content || '';
     if (excerpt.length > 120) excerpt = excerpt.substring(0, 120) + '...';
-
     const id = getNewsId(item);
 
     return `
@@ -94,8 +106,11 @@ function createCarouselSlide(item) {
     `;
 }
 
-// CAROUSEL LOGIC (Arrows)
+// ============================
+// LOGICA DEL CAROUSEL
+// ============================
 let carouselCurrentIndex = 0;
+
 function setupCarousel(totalSlides) {
     const track = document.getElementById('carousel-track-dynamic');
     const prevBtn = document.getElementById('carrusel-prev');
@@ -103,7 +118,6 @@ function setupCarousel(totalSlides) {
 
     if (!track || !prevBtn || !nextBtn) return;
 
-    // Reset
     carouselCurrentIndex = 0;
     track.style.transform = `translateX(0)`;
 
@@ -112,31 +126,26 @@ function setupCarousel(totalSlides) {
         track.style.transform = `translateX(${offset}%)`;
     }
 
+    // Botón siguiente
     nextBtn.addEventListener('click', (e) => {
-        e.preventDefault(); // Stop any default link behavior
-        if (carouselCurrentIndex < totalSlides - 1) {
-            carouselCurrentIndex++;
-            updateSlide();
-        } else {
-            // Loop back to start
-            carouselCurrentIndex = 0;
-            updateSlide();
-        }
+        e.preventDefault();
+        if (carouselCurrentIndex < totalSlides - 1) carouselCurrentIndex++;
+        else carouselCurrentIndex = 0; // Loop
+        updateSlide();
     });
 
+    // Botón anterior
     prevBtn.addEventListener('click', (e) => {
-        e.preventDefault(); // Stop any default link behavior
-        if (carouselCurrentIndex > 0) {
-            carouselCurrentIndex--;
-            updateSlide();
-        } else {
-            // Loop to end
-            carouselCurrentIndex = totalSlides - 1;
-            updateSlide();
-        }
+        e.preventDefault();
+        if (carouselCurrentIndex > 0) carouselCurrentIndex--;
+        else carouselCurrentIndex = totalSlides - 1; // Loop al final
+        updateSlide();
     });
 }
 
+// ============================
+// RENDER DETALLE DE NOTICIA
+// ============================
 async function renderDetail(id, allNews) {
     const item = allNews.find(n => getNewsId(n) === id);
     const detailContainer = document.getElementById('news-detail-content');
@@ -159,23 +168,24 @@ async function renderDetail(id, allNews) {
         detailContainer.innerHTML = `
         <div class="news-full-article" style="background:white; padding:30px; border-radius:20px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
             <h1 style="color:var(--verde-oscuro); font-size:2.5rem; margin-bottom:10px;">${item.title}</h1>
-                ${item.subtitle ? `<h3 style="color:#666; font-weight:normal; margin-bottom:20px;">${item.subtitle}</h3>` : ''}
-                <div style="margin-bottom:20px; color:#888;">${date}</div>
-                <img src="${img}" style="width:100%; max-height:500px; object-fit:cover; border-radius:15px; margin-bottom:30px;" onerror="this.src='${PLACEHOLDER_IMG}'">
-                <div class="news-body" style="font-size:1.1rem; line-height:1.8; color:#333;">
-                    ${item.content.replace(/\n/g, '<br><br>')}
-                </div>
-                <div style="margin-top:40px; padding-top:20px; border-top:1px solid #eee;">
-                    <a href="noticias.html" style="color:var(--verde-oscuro); font-weight:bold; text-decoration:none; font-size:1.1rem;">
-                        <i class="fa-solid fa-arrow-left"></i> Volver a Noticias
-                    </a>
-                </div>
+            ${item.subtitle ? `<h3 style="color:#666; font-weight:normal; margin-bottom:20px;">${item.subtitle}</h3>` : ''}
+            <div style="margin-bottom:20px; color:#888;">${date}</div>
+            <img src="${img}" style="width:100%; max-height:500px; object-fit:cover; border-radius:15px; margin-bottom:30px;" onerror="this.src='${PLACEHOLDER_IMG}'">
+            <div class="news-body" style="font-size:1.1rem; line-height:1.8; color:#333;">
+                ${item.content.replace(/\n/g, '<br><br>')}
             </div>
-    `;
+            <div style="margin-top:40px; padding-top:20px; border-top:1px solid #eee;">
+                <a href="noticias.html" style="color:var(--verde-oscuro); font-weight:bold; text-decoration:none; font-size:1.1rem;">
+                    <i class="fa-solid fa-arrow-left"></i> Volver a Noticias
+                </a>
+            </div>
+        </div>
+        `;
     }
 
+    // Render otras noticias (top 3)
     if (otherContainer) {
-        const others = allNews.filter(n => getNewsId(n) !== id).slice(0, 3); // Top 3 others
+        const others = allNews.filter(n => getNewsId(n) !== id).slice(0, 3);
         if (others.length > 0) {
             otherContainer.innerHTML = others.map(createNewsCard).join('');
         } else {
@@ -184,12 +194,13 @@ async function renderDetail(id, allNews) {
     }
 }
 
+// ============================
+// RENDER PÁGINA PRINCIPAL
+// ============================
 async function renderIndex(allNews) {
     const track = document.getElementById('carousel-track-dynamic');
 
-    // If we are NOT on index page (track not found), return or maybe look for a list container if we kept duplicate logic (unlikely here)
     if (!track) {
-        // Fallback if user uses this script on a page with 'index-news-container' but without the track
         const staticList = document.getElementById('index-news-container');
         if (staticList) {
             const latest = allNews.slice(0, 4);
@@ -198,7 +209,6 @@ async function renderIndex(allNews) {
         return;
     }
 
-    // Show latest 5 news for the carousel
     const latest = allNews.slice(0, 5);
     if (latest.length === 0) {
         track.innerHTML = '<p style="padding:20px;">No hay noticias recientes.</p>';
@@ -206,11 +216,12 @@ async function renderIndex(allNews) {
     }
 
     track.innerHTML = latest.map(createCarouselSlide).join('');
-
-    // Initialize Arrow Logic
     setupCarousel(latest.length);
 }
 
+// ============================
+// RENDER LISTA DE NOTICIAS
+// ============================
 async function renderList(allNews) {
     const container = document.getElementById('news-list-content');
     const detailWrapper = document.getElementById('news-detail-wrapper');
@@ -228,17 +239,19 @@ async function renderList(allNews) {
     }
 }
 
+// ============================
+// INICIALIZACIÓN
+// ============================
 async function initNews() {
     const news = await fetchNews();
-    // Assuming backend returns newest first? If not, reverse
-    const reversedNews = [...news].reverse();
+    const reversedNews = [...news].reverse(); // Últimas noticias primero
 
-    // Index Page (Carousel) check
+    // Página principal
     if (document.getElementById('carousel-track-dynamic') || document.getElementById('index-news-container')) {
         renderIndex(reversedNews);
     }
 
-    // News Page (List or Detail)
+    // Página noticias.html
     if (window.location.pathname.includes('noticias.html')) {
         const params = new URLSearchParams(window.location.search);
         const id = params.get('id');
@@ -255,4 +268,5 @@ async function initNews() {
     }
 }
 
+// Ejecutar al cargar la página
 document.addEventListener('DOMContentLoaded', initNews);
