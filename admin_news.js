@@ -1,51 +1,45 @@
-const API_BASE = '/api';
-const API_KEY = 'f447cd5956f8e91962cb965ebd9ab3e5666ba6a8b74d31bfa3ea1f2b277aee8d'; // From app.js
-let editingId = null;
+const API_BASE = '/api'; // Base API
+const API_KEY = 'f447cd5956f8e91962cb965ebd9ab3e5666ba6a8b74d31bfa3ea1f2b277aee8d'; // API Key
+let editingId = null; // ID en edición
 
 // Helpers
-const q = (id) => document.querySelector(id); // Use querySelector for flexibility
+const q = (id) => document.querySelector(id); // Query selector
 
 async function safeFetch(url, options = {}) {
     const headers = {
-        'x-api-key': API_KEY, // Optional but good practice if we enable auth later
+        'x-api-key': API_KEY, // API key
         ...(options.headers || {})
     };
 
-    // If body is NOT FormData, default to JSON
-    // If body IS FormData, do NOT set Content-Type (browser sets it with boundary)
     if (!(options.body instanceof FormData)) {
-        headers['Content-Type'] = 'application/json';
+        headers['Content-Type'] = 'application/json'; // JSON por defecto
     }
 
-    return fetch(url, {
-        ...options,
-        headers
-    });
+    return fetch(url, { ...options, headers }); // Fetch seguro
 }
 
 // 1. Load News
 async function loadNews() {
-    const container = document.getElementById('news-list');
+    const container = document.getElementById('news-list'); // Contenedor noticias
     try {
-        const res = await safeFetch(`${API_BASE}/news`);
+        const res = await safeFetch(`${API_BASE}/news`); // Fetch noticias
         const news = await res.json();
 
         if (!res.ok) throw new Error(news.error || 'Error');
 
-        container.innerHTML = '';
+        container.innerHTML = ''; // Limpiar contenedor
         if (news.length === 0) {
-            container.innerHTML = '<p>No hay noticias publicadas.</p>';
+            container.innerHTML = '<p>No hay noticias publicadas.</p>'; // Sin noticias
             return;
         }
 
         news.forEach(n => {
             const div = document.createElement('div');
-            div.className = 'news-card';
+            div.className = 'news-card'; // Card noticia
 
-            const img = n.mainImageUrl || 'imagenes/news.png';
+            const img = n.mainImageUrl || 'imagenes/news.png'; // Imagen
 
-            // Determine ID
-            const id = n.id || n._id || (n._id && n._id.$oid);
+            const id = n.id || n._id || (n._id && n._id.$oid); // Determinar ID
 
             div.innerHTML = `
                 <div class="news-left">
@@ -63,37 +57,37 @@ async function loadNews() {
                     <p>${n.subtitle || ''}</p>
                 </div>
             `;
-            container.appendChild(div);
+            container.appendChild(div); // Añadir card
         });
 
-        // Add event listeners for dynamic buttons to avoid inline onclick (CSP safe)
+        // Botones dinámicos
         document.querySelectorAll('.edit-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
                 const n = JSON.parse(e.target.dataset.news);
-                startEdit(n);
+                startEdit(n); // Editar noticia
             });
         });
 
         document.querySelectorAll('.delete-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                deleteNews(e.target.dataset.id);
+                deleteNews(e.target.dataset.id); // Eliminar noticia
             });
         });
 
     } catch (err) {
         console.error(err);
-        container.innerHTML = `<p style="color:red">Error cargando noticias.</p>`;
+        container.innerHTML = `<p style="color:red">Error cargando noticias.</p>`; // Error
     }
 }
 
-// 2. Submit News (Create or Update)
+// 2. Submit News
 const newsForm = document.getElementById('newsForm');
 if (newsForm) {
     newsForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const formData = new FormData(e.target);
+        e.preventDefault(); // Prevenir reload
+        const formData = new FormData(e.target); // FormData
         const submitBtn = e.target.querySelector('button[type="submit"]');
-        submitBtn.disabled = true;
+        submitBtn.disabled = true; // Deshabilitar
 
         try {
             let url = `${API_BASE}/news`;
@@ -101,45 +95,42 @@ if (newsForm) {
 
             if (editingId) {
                 url = `${API_BASE}/news/${editingId}`;
-                method = 'PUT'; // or PATCH depending on backend
+                method = 'PUT'; // Actualizar
             }
 
-            const res = await safeFetch(url, {
-                method: method,
-                body: formData // Send FormData directly (safeFetch will handle headers)
-            });
-
+            const res = await safeFetch(url, { method, body: formData }); // Enviar datos
             const data = await res.json();
+
             if (res.ok) {
-                alert(editingId ? 'Noticia actualizada!' : 'Noticia publicada!');
-                resetForm();
-                loadNews();
+                alert(editingId ? 'Noticia actualizada!' : 'Noticia publicada!'); // Mensaje
+                resetForm(); // Reset form
+                loadNews(); // Recargar
             } else {
-                alert(data.error || 'Error en la petición');
+                alert(data.error || 'Error en la petición'); // Error API
             }
         } catch (err) {
             console.error(err);
-            alert('Error de conexión');
+            alert('Error de conexión'); // Error red
         } finally {
-            submitBtn.disabled = false;
+            submitBtn.disabled = false; // Habilitar
         }
     });
 }
 
 // 3. Edit Logic
 window.startEdit = function (n) {
-    editingId = n.id || n._id || (n._id && n._id.$oid);
+    editingId = n.id || n._id || (n._id && n._id.$oid); // Guardar ID
     const form = document.getElementById('newsForm');
 
-    form.querySelector('[name="title"]').value = n.title || '';
-    form.querySelector('[name="subtitle"]').value = n.subtitle || '';
-    form.querySelector('[name="content"]').value = n.content || '';
+    form.querySelector('[name="title"]').value = n.title || ''; // Título
+    form.querySelector('[name="subtitle"]').value = n.subtitle || ''; // Subtítulo
+    form.querySelector('[name="content"]').value = n.content || ''; // Contenido
 
     const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'ACTUALIZAR NOTICIA';
-    btn.style.background = '#ffa500'; // Orange to indicate edit mode
+    btn.textContent = 'ACTUALIZAR NOTICIA'; // Cambiar texto
+    btn.style.background = '#ffa500'; // Color edición
 
-    // Optional: Show a "Cancel" button
+    // Botón cancelar
     let cancelBtn = document.getElementById('cancel-edit-btn');
     if (!cancelBtn) {
         cancelBtn = document.createElement('button');
@@ -147,45 +138,42 @@ window.startEdit = function (n) {
         cancelBtn.textContent = 'Cancelar';
         cancelBtn.type = 'button';
         cancelBtn.style.marginLeft = '10px';
-        cancelBtn.onclick = resetForm;
+        cancelBtn.onclick = resetForm; // Reset
         const btnContainer = form.querySelector('.input_container_button');
-        if (btnContainer) btnContainer.appendChild(cancelBtn);
+        if (btnContainer) btnContainer.appendChild(cancelBtn); // Añadir
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll top
 };
 
 // 4. Delete Logic
 window.deleteNews = async function (id) {
-    if (!confirm('¿Seguro que quieres eliminar esta noticia?')) return;
+    if (!confirm('¿Seguro que quieres eliminar esta noticia?')) return; // Confirm
     try {
-        const res = await safeFetch(`${API_BASE}/news/${id}`, { method: 'DELETE' });
-        if (res.ok) {
-            loadNews();
-        } else {
-            alert('Error al eliminar');
-        }
-    } catch (e) { console.error(e); alert('Error de red'); }
+        const res = await safeFetch(`${API_BASE}/news/${id}`, { method: 'DELETE' }); // Delete
+        if (res.ok) loadNews(); // Recargar
+        else alert('Error al eliminar'); // Error
+    } catch (e) { console.error(e); alert('Error de red'); } // Catch
 };
 
 function resetForm() {
-    editingId = null;
+    editingId = null; // Reset ID
     const form = document.getElementById('newsForm');
-    form.reset();
+    form.reset(); // Limpiar form
     const btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'PUBLICAR NOTICIA';
-    btn.style.background = 'var(--verde-oscuro)';
+    btn.textContent = 'PUBLICAR NOTICIA'; // Texto default
+    btn.style.background = 'var(--verde-oscuro)'; // Color default
 
     const cancelBtn = document.getElementById('cancel-edit-btn');
-    if (cancelBtn) cancelBtn.remove();
+    if (cancelBtn) cancelBtn.remove(); // Eliminar cancelar
 }
 
-document.addEventListener('DOMContentLoaded', loadNews);
+document.addEventListener('DOMContentLoaded', loadNews); // Cargar noticias
 
 // Menu toggle
 const menuBtn = document.getElementById('menu-btn');
 if (menuBtn) {
     menuBtn.addEventListener('click', () => {
         const menu = document.getElementById('menu');
-        if (menu) menu.classList.toggle('mostrar');
+        if (menu) menu.classList.toggle('mostrar'); // Toggle menú
     });
 }
