@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- Documento HTML5 con idioma español -->
 
 <head>
     <meta charset="UTF-8">
+    <!-- Codificación UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que la página sea responsive -->
     <title>Zooplanet</title>
+    <!-- Título de la página -->
 
     <link rel="stylesheet" href="normalize.css">
+    <!-- Normaliza estilos entre navegadores -->
     <link rel="stylesheet" href="CSS/styles.css?v=3">
+    <!-- CSS principal, con versión para cache-busting -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Librería de iconos Font Awesome -->
 </head>
 
 <body>
@@ -17,23 +24,31 @@
         <nav class="nav">
             <div class="nav-left">
                 <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i>
+                <!-- Botón hamburguesa para abrir menú lateral -->
                 <a href="index.html" style="text-decoration:none; color:inherit;">
                     <h1 class="titulo">ZOOPLANET</h1>
+                    <!-- Logo/título con enlace al inicio -->
                 </a>
             </div>
 
             <div id="menu" class="menu-oculto">
+                <!-- Menú lateral oculto inicialmente -->
                 <div class="menu-top">
                     <i class="fa-solid fa-xmark menu-close-btn" id="menu-close-btn"></i>
+                    <!-- Botón para cerrar menú -->
                     <div class="menu-logo-circle">
                         <img src="imagenes/logo.png" alt="Zoo Logo">
+                        <!-- Logo dentro del menú -->
                     </div>
                 </div>
 
                 <ul class="menu-list">
+                    <!-- LISTA PRINCIPAL DEL MENÚ -->
+
                     <!-- ZOO -->
                     <li>
                         <div class="menu-item-head">ZOO <i class="fa-solid fa-plus"></i></div>
+                        <!-- Cabecera que despliega submenú -->
                         <ul class="sub-menu">
                             <li><a href="ZOO/carnivoros.html">CARNÍVOROS</a></li>
                             <li><a href="ZOO/herbivoros.html">HERBÍVOROS</a></li>
@@ -61,7 +76,7 @@
                         </ul>
                     </li>
 
-                    <!-- INFO -->
+                    <!-- INFORMACIÓN -->
                     <li>
                         <div class="menu-item-head">INFORMACIÓN <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -83,20 +98,23 @@
 
             <div class="iconos">
                 <i class="fa-solid fa-magnifying-glass"></i>
+                <!-- Icono de búsqueda -->
                 <a href="login.html" id="login-btn-header" style="color: white; text-decoration: none;">
                     <i class="fa-solid fa-user"></i>
+                    <!-- Icono de usuario -->
                 </a>
             </div>
         </nav>
     </header>
 
-
     <main class="contenedor">
 
         <section id="dev-controls"
             style="display:none; padding: 20px; background: #eee; text-align: center; border-bottom: 2px solid #ccc; margin-bottom: 20px; border-radius: 10px;">
+            <!-- Panel de control de desarrollador, oculto por defecto -->
             <h1 style="color: #333; margin-top: 0;">Developer Mode Active</h1>
             <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <!-- Botones para administrar diferentes secciones -->
                 <a href="formulario.html" class="boton-caja"
                     style="width: auto; height: auto; padding: 15px; font-size: 1rem;">Admin Animales</a>
                 <a href="register.html" class="boton-caja"
@@ -105,70 +123,80 @@
                     style="width: auto; height: auto; padding: 15px; font-size: 1rem;">Admin Noticias</a>
             </div>
         </section>
-        <div>
-        <section class="banner-auto fading-banner">
-            <img src="imagenes/Banner1/foto1.jpg" alt="Banner 1">
-            <img src="imagenes/Banner1/foto2.jpg" alt="Banner 2">
-            <img src="imagenes/Banner1/foto3.jpg" alt="Banner 3">
-            <img src="imagenes/Banner1/foto4.jpg" alt="Banner 4">
-            <img src="imagenes/Banner1/foto5.jpg" alt="Banner 5">
-            <img src="imagenes/Banner1/foto6.jpg" alt="Banner 6">
-        </section>
-</div>
-        <div>
-        <section class="fila-botones">
-            <a href="ZOO/zoo.html" class="boton-caja">
-                <h1>Zoo</h1>
-            </a>
 
-            <a href="Mares_y_oceanos/acuario.html" class="boton-caja">
-                <h1>Acuario</h1>
-            </a>
-
-            <a href="TERRARIO/terrario.html" class="boton-caja">
-                <h1>Terrario</h1>
-            </a>
-        </section>
-</div>
+        <!-- Primer banner automático -->
         <div>
-        <section class="banner-auto fading-banner">
-            <img src="imagenes/Banner2/foto7.jpg" alt="Banner 1">
-            <img src="imagenes/Banner2/foto8.jpg" alt="Banner 2">
-            <img src="imagenes/Banner2/foto9.jpg" alt="Banner 3">
-            <img src="imagenes/Banner2/foto10.jpg" alt="Banner 4">
-            <img src="imagenes/Banner2/foto11.jpg" alt="Banner 5">
-            <img src="imagenes/Banner2/foto12.jpg" alt="Banner 6">
-        </section>
-</div>
+            <section class="banner-auto fading-banner">
+                <img src="imagenes/Banner1/foto1.jpg" alt="Banner 1">
+                <img src="imagenes/Banner1/foto2.jpg" alt="Banner 2">
+                <img src="imagenes/Banner1/foto3.jpg" alt="Banner 3">
+                <img src="imagenes/Banner1/foto4.jpg" alt="Banner 4">
+                <img src="imagenes/Banner1/foto5.jpg" alt="Banner 5">
+                <img src="imagenes/Banner1/foto6.jpg" alt="Banner 6">
+            </section>
+        </div>
+
+        <!-- Botones de acceso rápido a secciones principales -->
         <div>
-        <section class="seccion-carrusel">
-            <h2 class="titulo-seccion">Noticias</h2>
+            <section class="fila-botones">
+                <a href="ZOO/zoo.html" class="boton-caja">
+                    <h1>Zoo</h1>
+                </a>
 
-            <!-- Wrapper for positioning buttons outside -->
-            <div class="carrusel-wrapper" style="position: relative; max-width: 800px; margin: 0 auto;">
-                <button class="carrusel-btn prev" id="carrusel-prev">&#10094;</button>
+                <a href="Mares_y_oceanos/acuario.html" class="boton-caja">
+                    <h1>Acuario</h1>
+                </a>
 
-                <div class="carrusel">
-                    <div class="carousel-viewport">
-                        <div class="carrusel-track" id="carousel-track-dynamic">
-                            <!-- Dynamic slides injected here by news_loader.js -->
-                            <p style="text-align:center; width:100%; padding:20px;">Cargando noticias...</p>
+                <a href="TERRARIO/terrario.html" class="boton-caja">
+                    <h1>Terrario</h1>
+                </a>
+            </section>
+        </div>
+
+        <!-- Segundo banner automático -->
+        <div>
+            <section class="banner-auto fading-banner">
+                <img src="imagenes/Banner2/foto7.jpg" alt="Banner 1">
+                <img src="imagenes/Banner2/foto8.jpg" alt="Banner 2">
+                <img src="imagenes/Banner2/foto9.jpg" alt="Banner 3">
+                <img src="imagenes/Banner2/foto10.jpg" alt="Banner 4">
+                <img src="imagenes/Banner2/foto11.jpg" alt="Banner 5">
+                <img src="imagenes/Banner2/foto12.jpg" alt="Banner 6">
+            </section>
+        </div>
+
+        <!-- Sección de Noticias con carrusel -->
+        <div>
+            <section class="seccion-carrusel">
+                <h2 class="titulo-seccion">Noticias</h2>
+
+                <div class="carrusel-wrapper" style="position: relative; max-width: 800px; margin: 0 auto;">
+                    <button class="carrusel-btn prev" id="carrusel-prev">&#10094;</button>
+                    <!-- Botón anterior -->
+
+                    <div class="carrusel">
+                        <div class="carousel-viewport">
+                            <div class="carrusel-track" id="carousel-track-dynamic">
+                                <!-- Aquí se inyectarán dinámicamente las noticias con news_loader.js -->
+                                <p style="text-align:center; width:100%; padding:20px;">Cargando noticias...</p>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <button class="carrusel-btn next" id="carrusel-next">&#10095;</button>
-            </div>
-        </section>
-            </div>
+                    <button class="carrusel-btn next" id="carrusel-next">&#10095;</button>
+                    <!-- Botón siguiente -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Texto informativo/ONGs -->
         <div class="banner-texto">
             <p> World Wildlife Fund - International fund for animals - World animal protection - We are born free -
                 Comunidad inti wara yassi - ONG fauna verso -</p>
         </div>
 
+        <!-- Sección de ONGs con enlaces e imágenes -->
         <section class="seccion-ongs" id="ongs">
-
-
             <div class="grid-ongs">
                 <a href="ONG/ong1.html" class="ong-item">
                     <img src="ONG/imagenes/wwf_logo.jpg" alt="WFF">
@@ -204,14 +232,17 @@
 
     </main>
 
+    <!-- Footer -->
     <footer class="footer">
         <img src="imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
         <p>Zooplanet © 2025</p>
     </footer>
 
+    <!-- Scripts -->
     <script src="menu.js"></script>
+    <!-- Control del menú lateral -->
     <script src="news_loader.js?v=3"></script>
+    <!-- Carga dinámica de noticias para el carrusel -->
 </body>
-
 
 </html>
