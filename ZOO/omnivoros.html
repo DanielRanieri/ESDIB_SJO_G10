@@ -2,39 +2,46 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zooplanet - Omnívoros</title>
-    <link rel="stylesheet" href="../normalize.css">
-    <link rel="stylesheet" href="../CSS/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Metadatos del documento -->
+    <meta charset="UTF-8"> <!-- Codificación de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Optimización para dispositivos móviles -->
+    <title>Zooplanet - Omnívoros</title> <!-- Título de la página -->
+
+    <!-- Hojas de estilo -->
+    <link rel="stylesheet" href="../normalize.css"> <!-- Normaliza estilos entre navegadores -->
+    <link rel="stylesheet" href="../CSS/styles.css"> <!-- Estilos personalizados del sitio -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"> <!-- Iconos Font Awesome -->
 </head>
 
 <body>
+    <!-- Encabezado principal con navegación -->
     <header>
         <nav class="nav">
             <div class="nav-left">
+                <!-- Botón de menú para versión móvil -->
                 <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i>
+
+                <!-- Logo y título enlazando al inicio -->
                 <a href="../index.html" style="text-decoration:none; color:inherit;">
                     <h1 class="titulo">ZOOPLANET</h1>
                 </a>
             </div>
 
-
-
+            <!-- Menú desplegable oculto inicialmente -->
             <div id="menu" class="menu-oculto">
                 <div class="menu-top">
+                    <!-- Botón para cerrar el menú -->
                     <i class="fa-solid fa-xmark menu-close-btn" id="menu-close-btn"></i>
                     <div class="menu-logo-circle">
-                        <img src="../imagenes/paz.png" alt="Zoo Logo">
+                        <img src="../imagenes/paz.png" alt="Zoo Logo"> <!-- Logo dentro del menú -->
                     </div>
-                    
                 </div>
 
+                <!-- Lista de navegación principal con submenús -->
                 <ul class="menu-list">
-                    <!-- ZOO -->
+                    <!-- Sección ZOO -->
                     <li>
-                        <div class="menu-item-head">ZOO <i class="fa-solid fa-plus"></i></div>
+                        <div class="menu-item-head">ZOO <i class="fa-solid fa-plus"></i></div> <!-- Menú desplegable ZOO -->
                         <ul class="sub-menu">
                             <li><a href="../ZOO/carnivoros.html">CARNÍVOROS</a></li>
                             <li><a href="../ZOO/herbivoros.html">HERBÍVOROS</a></li>
@@ -42,7 +49,7 @@
                         </ul>
                     </li>
 
-                    <!-- ACUARIO -->
+                    <!-- Sección ACUARIO -->
                     <li>
                         <div class="menu-item-head">ACUARIO <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -53,7 +60,7 @@
                         </ul>
                     </li>
 
-                    <!-- TERRARIO -->
+                    <!-- Sección TERRARIO -->
                     <li>
                         <div class="menu-item-head">TERRARIO <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -62,7 +69,7 @@
                         </ul>
                     </li>
 
-                    <!-- INFO -->
+                    <!-- Sección INFORMACIÓN -->
                     <li>
                         <div class="menu-item-head">INFORMACIÓN <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -72,7 +79,7 @@
                         </ul>
                     </li>
 
-                    <!-- JUEGOS -->
+                    <!-- Sección JUEGOS -->
                     <li>
                         <div class="menu-item-head">JUEGOS <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -80,28 +87,37 @@
                         </ul>
                     </li>
                 </ul>
+
+                <!-- Iconos de búsqueda y login dentro del menú -->
                 <div class="iconos">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-magnifying-glass"></i> <!-- Icono de búsqueda -->
                     <a href="../login.html" id="login-btn-header"
                         style="color: white; text-decoration: none; margin: 0 10px;">
-                        <i class="fa-solid fa-user"></i>
+                        <i class="fa-solid fa-user"></i> <!-- Icono de usuario -->
                     </a>
                 </div>
+            </div>
         </nav>
     </header>
 
+    <!-- Contenido principal -->
     <main class="contenedor">
-        <h2 class="titulo-seccion">Omnívoros</h2>
+        <h2 class="titulo-seccion">Omnívoros</h2> <!-- Título de la sección -->
+
+        <!-- Contenedor donde se cargan dinámicamente los animales omnívoros -->
+        <!-- 'data-group' indica al JavaScript qué grupo cargar -->
         <div id="animal-list-container" data-group="omnivoros" style="max-width: 1000px; margin: 0 auto;"></div>
     </main>
 
+    <!-- Pie de página -->
     <footer class="footer">
         <img src="../imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
         <p>Zooplanet © 2025</p>
     </footer>
 
-    <script src="../menu.js"></script>
-    <script src="../sections_loader.js"></script>
+    <!-- Scripts -->
+    <script src="../menu.js"></script> <!-- Funcionalidad del menú (abrir/cerrar y submenús) -->
+    <script src="../sections_loader.js"></script> <!-- Carga dinámica de animales en la sección correspondiente -->
 </body>
 
 </html>
