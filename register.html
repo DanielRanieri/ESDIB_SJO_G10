@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zooplanet</title>
-
+    <title>Zooplanet - Registro</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -21,6 +20,7 @@
                     <h1 class="titulo">ZOOPLANET</h1>
                 </a>
             </div>
+
 
             <div id="menu" class="menu-oculto">
                 <div class="menu-top">
@@ -81,44 +81,48 @@
                     </li>
                 </ul>
             </div>
+            <div class="iconos">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <a href="login.html" id="login-btn-header" style="color: white; text-decoration: none; margin: 0 10px;">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </div>
         </nav>
     </header>
+
     <main class="contenedor">
+        <section class="seccion"
+            style="height: auto; padding: 40px; max-width: 500px; margin: 40px auto; text-align: center;">
+            <h2 class="titulo-seccion">Registro de Usuario</h2>
+            <form id="registerForm" enctype="multipart/form-data"
+                style="display: flex; flex-direction: column; gap: 15px;">
+                <input type="text" id="name" name="name" placeholder="Nombre" required
+                    style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                <input type="text" id="lastname" name="lastname" placeholder="Apellido" required
+                    style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                <input type="text" id="username" name="username" placeholder="Usuario" required
+                    style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                <input type="password" id="password" name="password" placeholder="Contraseña" required
+                    style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
+                <input type="password" id="confirm_password" placeholder="Confirmar Contraseña" required
+                    style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
 
-        <section class="noticias-section" style="min-height: 500px;">
+                <label style="text-align: left; font-size: 0.9em; color: #555;">Foto de Perfil (Opcional):</label>
+                <input type="file" id="photo" name="photo" accept="image/*"
+                    style="padding: 10px; border: 1px solid #ccc;">
 
-            <!-- List View -->
-            <div id="news-list-wrapper">
-                <h2 class="titulo-noticias">Noticias</h2>
-                <div id="news-list-content"
-                    style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;">
-                    <p style="text-align:center;">Cargando noticias...</p>
-                </div>
-            </div>
-
-            <!-- Detail View -->
-            <div id="news-detail-wrapper" style="display:none;">
-                <div id="news-detail-content" style="margin-bottom: 50px;"></div>
-
-                <div id="news-others-section">
-                    <h3 class="others-section-title"
-                        style="font-size: 1.8rem; margin-bottom: 30px; border-bottom: 2px solid var(--verde-claro); padding-bottom: 10px; color: var(--verde-oscuro);">
-                        Otras Noticias</h3>
-                    <div id="news-other-content" style="max-width: 1000px; margin: 0 auto;"></div>
-                </div>
-            </div>
-
+                <button type="submit" class="boton-caja"
+                    style="width: 100%; height: auto; padding: 10px; background: var(--verde-oscuro); color: white; border: none; cursor: pointer;">Registrarse</button>
+            </form>
         </section>
-
     </main>
+
     <footer class="footer">
         <img src="imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
         <p>Zooplanet © 2025</p>
     </footer>
 
-
-    <script src="menu.js"></script>
-    <script src="news_loader.js"></script>
+    <script src="register.js"></script>
 </body>
 
 </html>

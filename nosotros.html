@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,78 +10,138 @@
     <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
-<header>
-    <nav class="nav">
-        <h1 class="titulo">ZOOPLANET</h1>
+    <header>
+        <nav class="nav">
+            <div class="nav-left">
+                <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i>
+                <a href="index.html" style="text-decoration:none; color:inherit;">
+                    <h1 class="titulo">ZOOPLANET</h1>
+                </a>
+            </div>
 
-        <div class="iconos">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i id="menu-btn" class="fa-solid fa-bars"></i>
-        </div>
-    </nav>
 
-    <ul id="menu" class="menu-oculto">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="zoo.html">Zoo</a></li>
-        <li><a href="acuario.html">Acuario</a></li>
-        <li><a href="terrario.html">Terrario</a></li>
-        <li><a href="noticias.html">Noticias</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="login.html">Inicio de sesión</a></li>
-    </ul>
-</header>
-<main class="contenedor">
-<section class="nosotros-seccion">
-    <h1 class="titulo">Conoce a nuestro equipo</h1>
+            <div id="menu" class="menu-oculto">
+                <div class="menu-top">
+                    <i class="fa-solid fa-xmark menu-close-btn" id="menu-close-btn"></i>
+                    <div class="menu-logo-circle">
+                        <img src="imagenes/paz.png" alt="Zoo Logo">
+                    </div>
+                    
+                </div>
 
-    <div class="miembro">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Miembro 1">
-        <div class="miembro-info">
-            <h2>Matias Bedoya</h2>
-            <p>Encargado backend</p>
-        </div>
-    </div>
+                <ul class="menu-list">
+                    <!-- ZOO -->
+                    <li>
+                        <div class="menu-item-head">ZOO <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="ZOO/carnivoros.html">CARNÍVOROS</a></li>
+                            <li><a href="ZOO/herbivoros.html">HERBÍVOROS</a></li>
+                            <li><a href="ZOO/omnivoros.html">OMNÍVOROS</a></li>
+                        </ul>
+                    </li>
 
-    <div class="miembro miembro-reverse">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Miembro 2">
-        <div class="miembro-info">
-            <h2>Daniel Ranieri</h2>
-            <p>Scrum master</p>
-        </div>
-    </div>
+                    <!-- ACUARIO -->
+                    <li>
+                        <div class="menu-item-head">ACUARIO <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="Mares_y_oceanos/oceano_pacifico.html">PACÍFICO</a></li>
+                            <li><a href="Mares_y_oceanos/oceano_atlantico.html">ATLÁNTICO</a></li>
+                            <li><a href="Mares_y_oceanos/mediterraneo.html">MEDITERRÁNEO</a></li>
+                            <li><a href="Mares_y_oceanos/mares_tropicales.html">MARES TROPICALES</a></li>
+                        </ul>
+                    </li>
 
-    <div class="miembro">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Miembro 3">
-        <div class="miembro-info">
-            <h2>Miguel Suasi</h2>
-            <p>Supervisor frontend</p>
-        </div>
-    </div>
+                    <!-- TERRARIO -->
+                    <li>
+                        <div class="menu-item-head">TERRARIO <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="TERRARIO/insectos.html">INSECTOS</a></li>
+                            <li><a href="TERRARIO/reptiles.html">REPTILES</a></li>
+                        </ul>
+                    </li>
 
-    <div class="miembro miembro-reverse">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Miembro 4">
-        <div class="miembro-info">
-            <h2>Alba Caro</h2>
-            <p>Diseñadora y supervisora frontend</p>
-        </div>
-    </div>
+                    <!-- INFO -->
+                    <li>
+                        <div class="menu-item-head">INFORMACIÓN <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="noticias.html">NOTICIAS</a></li>
+                            <li><a href="ONG/ong1.html">ONGs</a></li>
+                            <li><a href="nosotros.html">NOSOTROS</a></li>
+                        </ul>
+                    </li>
 
-    <div class="miembro">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Miembro 5">
-        <div class="miembro-info">
-            <h2>Max Jaume</h2>
-            <p>Diseñador e ilustrador, encargado frontend</p>
-        </div>
-    </div>
-</section>
+                    <!-- JUEGOS -->
+                    <li>
+                        <div class="menu-item-head">JUEGOS <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="juegos.html">KAHOOT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="iconos">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <a href="login.html" id="login-btn-header" style="color: white; text-decoration: none; margin: 0 10px;">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main class="contenedor">
+        <section class="nosotros-seccion">
+            <h1 class="titulo_nostros">Conoce a nuestro equipo</h1>
 
-</main>
-<footer class="footer">
-    <p>Zooplanet © 2025</p>
-</footer>
+            <div class="miembro">
+                <img src="Imagenes/Img_Int/Matias.jpg" alt="Miembro 1">
+                <div class="miembro-info">
+                    <h2>Matias Bedoya</h2>
+                    <p>Encargado backend, asistente frontend</p>
+                </div>
+            </div>
 
-<script src="menu.js"></script>
+            <div class="miembro miembro-reverse">
+                <img src="Imagenes/Img_Int/danitraje.jpg" alt="Miembro 2">
+                <div class="miembro-info">
+                    <h2>Daniel Ranieri</h2>
+                    <p>Scrum master</p>
+                </div>
+            </div>
+
+            <div class="miembro">
+                <img src="Imagenes/Img_Int/miguel.jpg" alt="Miembro 3">
+                <div class="miembro-info">
+                    <h2>Miguel Suasi</h2>
+                    <p>Supervisor frontend</p>
+                </div>
+            </div>
+
+            <div class="miembro miembro-reverse">
+                <img src="Imagenes/Img_Int/Caro_Alba.jpg" alt="Miembro 4">
+                <div class="miembro-info">
+                    <h2>Alba Caro</h2>
+                    <p>Diseñadora y supervisora frontend</p>
+                </div>
+            </div>
+
+            <div class="miembro">
+                <img src="Imagenes/Img_Int/max_jaume.jpg" alt="Miembro 5">
+                <div class="miembro-info">
+                    <h2>Max Jaume</h2>
+                    <p>Diseñador e ilustrador, coordinador frontend</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer class="footer">
+        <img src="imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
+        <p>Zooplanet © 2025</p>
+    </footer>
+
+    <script src="menu.js"></script>
 </body>
+
 </html>

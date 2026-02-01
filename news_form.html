@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zooplanet</title>
-
+    <title>Zooplanet - Crear Noticia</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -17,10 +16,9 @@
         <nav class="nav">
             <div class="nav-left">
                 <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i>
-                <a href="index.html" style="text-decoration:none; color:inherit;">
-                    <h1 class="titulo">ZOOPLANET</h1>
-                </a>
+                <h1 class="titulo">ZOOPLANET - ADMIN NEWS</h1>
             </div>
+
 
             <div id="menu" class="menu-oculto">
                 <div class="menu-top">
@@ -81,44 +79,79 @@
                     </li>
                 </ul>
             </div>
+            <div class="iconos">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
         </nav>
     </header>
+
     <main class="contenedor">
+        <section class="seccion"
+            style="height: auto; padding: 40px; max-width: 800px; margin: 40px auto; text-align: center;">
+            <h2 class="titulo-seccion">Publicar Noticia</h2>
+            <form id="newsForm" enctype="multipart/form-data"
+                style="display: flex; flex-direction: column; gap: 15px; text-align: left;">
 
-        <section class="noticias-section" style="min-height: 500px;">
+                <label>Título:</label>
+                <input type="text" name="title" required
+                    style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
 
-            <!-- List View -->
-            <div id="news-list-wrapper">
-                <h2 class="titulo-noticias">Noticias</h2>
-                <div id="news-list-content"
-                    style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;">
-                    <p style="text-align:center;">Cargando noticias...</p>
-                </div>
-            </div>
+                <label>Subtítulo:</label>
+                <input type="text" name="subtitle" style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;">
 
-            <!-- Detail View -->
-            <div id="news-detail-wrapper" style="display:none;">
-                <div id="news-detail-content" style="margin-bottom: 50px;"></div>
+                <label>Contenido Principal:</label>
+                <textarea name="content" rows="6" required
+                    style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
 
-                <div id="news-others-section">
-                    <h3 class="others-section-title"
-                        style="font-size: 1.8rem; margin-bottom: 30px; border-bottom: 2px solid var(--verde-claro); padding-bottom: 10px; color: var(--verde-oscuro);">
-                        Otras Noticias</h3>
-                    <div id="news-other-content" style="max-width: 1000px; margin: 0 auto;"></div>
-                </div>
-            </div>
+                <label>Imagen Principal:</label>
+                <input type="file" name="mainImage" accept="image/*">
 
+                <label>Imagen Secundaria:</label>
+                <input type="file" name="secondaryImage" accept="image/*">
+
+                <label>Conclusión / Resumen:</label>
+                <textarea name="conclusion" rows="3"
+                    style="padding: 10px; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+
+                <button type="submit" class="boton-caja"
+                    style="width: 100%; height: auto; padding: 15px; background: var(--verde-oscuro); color: white; border: none; cursor: pointer; margin-top: 20px;">Publicar
+                    Noticia</button>
+            </form>
         </section>
-
     </main>
+
     <footer class="footer">
         <img src="imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
         <p>Zooplanet © 2025</p>
     </footer>
 
+    <script>
+        document.getElementById('newsForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
 
+            try {
+                const res = await fetch('/api/news', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+
+                if (res.ok) {
+                    alert('Noticia publicada exitosamente');
+                    window.location.href = 'noticias.html';
+                } else {
+                    alert(data.error || 'Error al publicar');
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Error de conexión');
+            }
+        });
+
+        // Menu logic moved to menu.js
+    </script>
     <script src="menu.js"></script>
-    <script src="news_loader.js"></script>
 </body>
 
 </html>

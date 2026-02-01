@@ -4,11 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zooplanet</title>
-
+    <title>Zooplanet - Developer Dashboard</title>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="CSS/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        .dev-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .dev-column {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .dev-column h2 {
+            color: var(--verde-oscuro);
+            border-bottom: 2px solid var(--verde-claro);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .dev-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: var(--verde-claro);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .dev-btn:hover {
+            background: var(--verde-oscuro);
+            transform: scale(1.02);
+        }
+    </style>
 </head>
 
 <body>
@@ -17,10 +59,9 @@
         <nav class="nav">
             <div class="nav-left">
                 <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i>
-                <a href="index.html" style="text-decoration:none; color:inherit;">
-                    <h1 class="titulo">ZOOPLANET</h1>
-                </a>
+                <h1 class="titulo">ZOOPLANET - DEV MODE</h1>
             </div>
+
 
             <div id="menu" class="menu-oculto">
                 <div class="menu-top">
@@ -81,44 +122,40 @@
                     </li>
                 </ul>
             </div>
+            <div class="iconos">
+                <a href="index.html" style="color: white; font-size: 1.2rem; text-decoration: none;">
+                    <i class="fa-solid fa-house"></i> Volver a Home
+                </a>
+            </div>
         </nav>
     </header>
-    <main class="contenedor">
 
-        <section class="noticias-section" style="min-height: 500px;">
+    <main class="dev-container">
+        <!-- Columna 1: Animales -->
+        <div class="dev-column">
+            <h2><i class="fa-solid fa-paw"></i> Animales</h2>
+            <a href="formulario.html" class="dev-btn">Gestionar Animales (Formulario/Lista)</a>
+        </div>
 
-            <!-- List View -->
-            <div id="news-list-wrapper">
-                <h2 class="titulo-noticias">Noticias</h2>
-                <div id="news-list-content"
-                    style="max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px;">
-                    <p style="text-align:center;">Cargando noticias...</p>
-                </div>
-            </div>
+        <!-- Columna 2: Noticias -->
+        <div class="dev-column">
+            <h2><i class="fa-solid fa-newspaper"></i> Noticias</h2>
+            <a href="admin_news.html" class="dev-btn">Gestión de Noticias (Form + Lista)</a>
+        </div>
 
-            <!-- Detail View -->
-            <div id="news-detail-wrapper" style="display:none;">
-                <div id="news-detail-content" style="margin-bottom: 50px;"></div>
-
-                <div id="news-others-section">
-                    <h3 class="others-section-title"
-                        style="font-size: 1.8rem; margin-bottom: 30px; border-bottom: 2px solid var(--verde-claro); padding-bottom: 10px; color: var(--verde-oscuro);">
-                        Otras Noticias</h3>
-                    <div id="news-other-content" style="max-width: 1000px; margin: 0 auto;"></div>
-                </div>
-            </div>
-
-        </section>
-
+        <!-- Columna 3: Usuarios -->
+        <div class="dev-column">
+            <h2><i class="fa-solid fa-users"></i> Usuarios</h2>
+            <a href="admin_users.html" class="dev-btn">Gestión de Usuarios (Form + Lista)</a>
+        </div>
     </main>
+
     <footer class="footer">
         <img src="imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
-        <p>Zooplanet © 2025</p>
+        <p>Zooplanet © 2025 - Developer Access</p>
     </footer>
 
-
     <script src="menu.js"></script>
-    <script src="news_loader.js"></script>
 </body>
 
 </html>

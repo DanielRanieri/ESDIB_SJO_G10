@@ -1,0 +1,191 @@
+/* formulario.css */
+
+/* Variables de colores */
+:root {
+    --verde-oscuro: #1B5E20;
+    --verde-medio: #4CAF50;
+    --verde-claro: #A5D6A7;
+    --blanco: #FFFFFF;
+}
+
+/* Estilo general del body con fondo de imagen */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('fondo.png'); /* reemplaza con tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 50px; /* espacio para el header si lo tienes */
+}
+
+/* Contenedor principal */
+.main_container {
+    width: 60%;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.95); /* fondo blanco casi opaco */
+    border-radius: 25px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    margin: 50px auto; /* centrado horizontal con margen arriba y abajo */
+    backdrop-filter: blur(5px); /* opcional */
+}
+
+
+
+/* Título del formulario */
+.title {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--verde-oscuro);
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+/* Grid para formulario en dos columnas si aplica */
+.dos-columnas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px; /* separación entre columnas */
+    margin-bottom: 30px;
+}
+
+/* Input y label */
+.input_container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px; /* más separación vertical */
+}
+
+.input_container label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: var(--verde-oscuro);
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.input_container input,
+.input_container select,
+.input_container textarea {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input_container input:focus,
+.input_container select:focus,
+.input_container textarea:focus {
+    border-color: var(--verde-medio);
+}
+
+/* Textarea no redimensionable */
+.input_container textarea {
+    resize: none;
+}
+
+/* Botones */
+.input_container_button {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.input_container_button button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--blanco);
+    background-color: var(--verde-medio);
+    transition: background 0.3s;
+}
+
+.input_container_button button:hover {
+    background-color: var(--verde-oscuro);
+}
+
+/* Lista de mascotas */
+.pet-item {
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.pet-header {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--verde-oscuro);
+}
+
+.pet-actions button {
+    margin-left: 8px;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: none;
+    background-color: var(--verde-medio);
+    color: var(--blanco);
+    transition: background 0.3s;
+}
+
+.pet-actions button:hover {
+    background-color: var(--verde-oscuro);
+}
+
+.pet-photos {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.pet-photos img {
+    width: 96px;
+    height: 96px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.muted {
+    color: #666;
+    font-size: 0.9em;
+}
+
+/* Imagen de mascota grande (opcional) */
+.tarjeta img {
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    object-fit: cover;
+    display: block;
+    margin: 20px auto 0 auto;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .contenedor {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    .dos-columnas {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
