@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página 1 - Zooplanet</title>
+    <title>Zooplanet - Océano Atlántico</title>
     <link rel="stylesheet" href="../normalize.css">
     <link rel="stylesheet" href="../CSS/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -90,33 +90,18 @@
         </nav>
     </header>
 
-    <main class="contenedor_acu">
-        <section class="fila-botones_acu">
-
-            <a href="mediterraneo.html" class="boton-caja_acu" id="mar-mediterraneo">
-                <h3>Mar Mediterráneo</h3>
-            </a>
-
-            <a href="mares_tropicales.html" class="boton-caja_acu" id="mares-tropicales">
-                <h3>Mares Tropicales</h3>
-            </a>
-
-            <a href="oceano_atlantico.html" class="boton-caja_acu" id="oceano-atlantico">
-                <h3>Océano Atlántico</h3>
-            </a>
-
-            <a href="oceano_pacifico.html" class="boton-caja_acu" id="oceano-pacifico">
-                <h3>Océano Pacífico</h3>
-            </a>
-
-        </section>
+    <main class="contenedor contenedor_acu">
+        <h2 class="titulo-seccion">Océano Atlántico</h2>
+        <div id="animal-list-container" data-group="oceano_atlantico" style="max-width: 1000px; margin: 0 auto;"></div>
     </main>
 
     <footer class="footer">
         <img src="../imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
         <p>Zooplanet © 2025</p>
     </footer>
+
     <script src="../menu.js"></script>
+    <script src="../sections_loader.js"></script>
 </body>
 
 </html>
