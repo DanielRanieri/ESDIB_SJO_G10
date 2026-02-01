@@ -1,37 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- Documento HTML en español -->
 
 <head>
+    <!-- Codificación de caracteres -->
     <meta charset="UTF-8">
+
+    <!-- Configuración para que la web sea responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título de la pestaña del navegador -->
     <title>Zooplanet - Océano Pacífico</title>
+
+    <!-- Reset de estilos para compatibilidad entre navegadores -->
     <link rel="stylesheet" href="../normalize.css">
+
+    <!-- Hoja de estilos principal del sitio -->
     <link rel="stylesheet" href="../CSS/styles.css">
+
+    <!-- Librería Font Awesome para iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body class="body_acu">
+<!-- Clase usada para aplicar estilos del acuario -->
+
+    <!-- CABECERA -->
     <header>
         <nav class="nav">
+
+            <!-- Zona izquierda de la navegación -->
             <div class="nav-left">
+                <!-- Botón hamburguesa para abrir el menú -->
                 <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i>
+
+                <!-- Logo que enlaza a la página principal -->
                 <a href="../index.html" style="text-decoration:none; color:inherit;">
                     <h1 class="titulo">ZOOPLANET</h1>
                 </a>
             </div>
 
-
+            <!-- MENÚ DESPLEGABLE OCULTO -->
             <div id="menu" class="menu-oculto">
+
+                <!-- Parte superior del menú -->
                 <div class="menu-top">
+                    <!-- Botón para cerrar el menú -->
                     <i class="fa-solid fa-xmark menu-close-btn" id="menu-close-btn"></i>
+
+                    <!-- Logo circular dentro del menú -->
                     <div class="menu-logo-circle">
                         <img src="../imagenes/paz.png" alt="Zoo Logo">
                     </div>
-                    
                 </div>
 
+                <!-- Lista principal de opciones -->
                 <ul class="menu-list">
-                    <!-- ZOO -->
+
+                    <!-- SECCIÓN ZOO -->
                     <li>
                         <div class="menu-item-head">ZOO <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -41,7 +67,7 @@
                         </ul>
                     </li>
 
-                    <!-- ACUARIO -->
+                    <!-- SECCIÓN ACUARIO -->
                     <li>
                         <div class="menu-item-head">ACUARIO <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -52,7 +78,7 @@
                         </ul>
                     </li>
 
-                    <!-- TERRARIO -->
+                    <!-- SECCIÓN TERRARIO -->
                     <li>
                         <div class="menu-item-head">TERRARIO <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -61,7 +87,7 @@
                         </ul>
                     </li>
 
-                    <!-- INFO -->
+                    <!-- SECCIÓN INFORMACIÓN -->
                     <li>
                         <div class="menu-item-head">INFORMACIÓN <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -71,37 +97,58 @@
                         </ul>
                     </li>
 
-                    <!-- JUEGOS -->
+                    <!-- SECCIÓN JUEGOS -->
                     <li>
                         <div class="menu-item-head">JUEGOS <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
                             <li><a href="../juegos.html">KAHOOT</a></li>
                         </ul>
                     </li>
+
                 </ul>
             </div>
+
+            <!-- ICONOS DEL LADO DERECHO -->
             <div class="iconos">
+                <!-- Icono de búsqueda -->
                 <i class="fa-solid fa-magnifying-glass"></i>
+
+                <!-- Icono de usuario con enlace al login -->
                 <a href="../login.html" id="login-btn-header"
                     style="color: white; text-decoration: none; margin: 0 10px;">
                     <i class="fa-solid fa-user"></i>
                 </a>
             </div>
+
         </nav>
     </header>
 
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="contenedor contenedor_acu">
+        <!-- Título de la sección -->
         <h2 class="titulo-seccion">Océano Pacífico</h2>
-        <div id="animal-list-container" data-group="oceano_pacifico" style="max-width: 1000px; margin: 0 auto;"></div>
+
+        <!-- Contenedor donde se cargan los animales del océano Pacífico -->
+        <div id="animal-list-container"
+             data-group="oceano_pacifico"
+             style="max-width: 1000px; margin: 0 auto;">
+        </div>
     </main>
 
+    <!-- PIE DE PÁGINA -->
     <footer class="footer">
+        <!-- Logo del sitio -->
         <img src="../imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
+
+        <!-- Texto de copyright -->
         <p>Zooplanet © 2025</p>
     </footer>
 
+    <!-- Script para el menú desplegable -->
     <script src="../menu.js"></script>
-    <script src="../sections_loader.js"></script>
-</body>
 
+    <!-- Script para cargar dinámicamente las secciones -->
+    <script src="../sections_loader.js"></script>
+
+</body>
 </html>
