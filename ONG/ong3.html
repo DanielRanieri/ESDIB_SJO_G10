@@ -1,39 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- Documento HTML en español -->
 
 <head>
+    <!-- Codificación de caracteres -->
     <meta charset="UTF-8">
+
+    <!-- Configuración responsive para móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título de la pestaña -->
     <title>Zooplanet</title>
 
+    <!-- Reset de estilos entre navegadores -->
     <link rel="stylesheet" href="../normalize.css">
+
+    <!-- Hoja de estilos principal -->
     <link rel="stylesheet" href="../CSS/styles.css">
+
+    <!-- Librería de iconos Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
 
+    <!-- CABECERA -->
     <header>
         <nav class="nav">
+
+            <!-- Zona izquierda del menú -->
             <div class="nav-left">
+                <!-- Botón de menú hamburguesa -->
                 <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i>
+
+                <!-- Logo con enlace a inicio -->
                 <a href="../index.html" style="text-decoration:none; color:inherit;">
                     <h1 class="titulo">ZOOPLANET</h1>
                 </a>
             </div>
 
-
+            <!-- MENÚ LATERAL OCULTO -->
             <div id="menu" class="menu-oculto">
+
+                <!-- Parte superior del menú -->
                 <div class="menu-top">
+                    <!-- Botón para cerrar menú -->
                     <i class="fa-solid fa-xmark menu-close-btn" id="menu-close-btn"></i>
+
+                    <!-- Logo circular dentro del menú -->
                     <div class="menu-logo-circle">
                         <img src="../imagenes/paz.png" alt="Zoo Logo">
                     </div>
-                    
                 </div>
 
+                <!-- Lista principal del menú -->
                 <ul class="menu-list">
-                    <!-- ZOO -->
+
+                    <!-- SECCIÓN ZOO -->
                     <li>
                         <div class="menu-item-head">ZOO <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -43,7 +66,7 @@
                         </ul>
                     </li>
 
-                    <!-- ACUARIO -->
+                    <!-- SECCIÓN ACUARIO -->
                     <li>
                         <div class="menu-item-head">ACUARIO <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -54,7 +77,7 @@
                         </ul>
                     </li>
 
-                    <!-- TERRARIO -->
+                    <!-- SECCIÓN TERRARIO -->
                     <li>
                         <div class="menu-item-head">TERRARIO <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -63,7 +86,7 @@
                         </ul>
                     </li>
 
-                    <!-- INFO -->
+                    <!-- SECCIÓN INFORMACIÓN -->
                     <li>
                         <div class="menu-item-head">INFORMACIÓN <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -73,37 +96,47 @@
                         </ul>
                     </li>
 
-                    <!-- JUEGOS -->
+                    <!-- SECCIÓN JUEGOS -->
                     <li>
                         <div class="menu-item-head">JUEGOS <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
                             <li><a href="../juegos.html">KAHOOT</a></li>
                         </ul>
                     </li>
+
                 </ul>
             </div>
+
+            <!-- ICONOS LATERALES -->
             <div class="iconos">
+                <!-- Icono de búsqueda -->
                 <i class="fa-solid fa-magnifying-glass"></i>
+
+                <!-- Icono de usuario con enlace a login -->
                 <a href="../login.html" id="login-btn-header"
                     style="color: white; text-decoration: none; margin: 0 10px;">
                     <i class="fa-solid fa-user"></i>
                 </a>
             </div>
+
         </nav>
     </header>
 
-
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="contenedor">
-        <!-- Banner Removed -->
 
+        <!-- Sección de detalle de la ONG -->
         <section class="ong-detalle">
 
+            <!-- Imagen de la ONG -->
             <img class="ong-imagen" src="imagenes/worldanimalprotection_logo.png" alt="World Animal Protection Logo">
 
+            <!-- Título de la ONG -->
             <div class="ong-titulo-contenedor">
                 <h1 class="ong-titulo">World animal protection</h1>
             </div>
 
+            <!-- Información de la ONG -->
             <div class="ong-info-contenedor">
                 <p class="ong-info">
                     Somos World Animal Protection. Nuestra misión es acabar con la crueldad y el
@@ -127,6 +160,7 @@
                 </p>
             </div>
 
+            <!-- Botón externo para donar a la ONG -->
             <a class="boton-donar" href="https://www.worldanimalprotection.org" target="_blank">
                 Donar
             </a>
@@ -135,14 +169,17 @@
 
     </main>
 
+    <!-- PIE DE PÁGINA -->
     <footer class="footer">
+        <!-- Logo del sitio -->
         <img src="../imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
+
+        <!-- Texto de copyright -->
         <p>Zooplanet © 2025</p>
     </footer>
 
+    <!-- Script para el menú lateral -->
     <script src="../menu.js"></script>
 
-
 </body>
-
 </html>
