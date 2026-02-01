@@ -1,133 +1,212 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zooplanet</title>
 
     <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="CSS/styles.css">
+    <link rel="stylesheet" href="CSS/styles.css?v=3">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
-<header>
-    <nav class="nav">
-        <h1 class="titulo">ZOOPLANET</h1>
+    <header>
+        <nav class="nav">
+            <div class="nav-left">
+                <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i>
+                <a href="index.html" style="text-decoration:none; color:inherit;">
+                    <h1 class="titulo">ZOOPLANET</h1>
+                </a>
+            </div>
 
-        <div class="iconos">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <i id="menu-btn" class="fa-solid fa-bars"></i>
-        </div>
-    </nav>
+            <div id="menu" class="menu-oculto">
+                <div class="menu-top">
+                    <i class="fa-solid fa-xmark menu-close-btn" id="menu-close-btn"></i>
+                    <div class="menu-logo-circle">
+                        <img src="imagenes/logo.png" alt="Zoo Logo">
+                    </div>
+                </div>
 
-    <ul id="menu" class="menu-oculto">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="zoo.html">Zoo</a></li>
-        <li><a href="acuario.html">Acuario</a></li>
-        <li><a href="terrario.html">Terrario</a></li>
-        <li><a href="noticias.html">Noticias</a></li>
-        <li><a href="nosotros.html">Nosotros</a></li>
-        <li><a href="login.html">Inicio de sesión</a></li>
-    </ul>
-</header>
+                <ul class="menu-list">
+                    <!-- ZOO -->
+                    <li>
+                        <div class="menu-item-head">ZOO <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="ZOO/carnivoros.html">CARNÍVOROS</a></li>
+                            <li><a href="ZOO/herbivoros.html">HERBÍVOROS</a></li>
+                            <li><a href="ZOO/omnivoros.html">OMNÍVOROS</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- ACUARIO -->
+                    <li>
+                        <div class="menu-item-head">ACUARIO <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="Mares_y_oceanos/oceano_pacifico.html">PACÍFICO</a></li>
+                            <li><a href="Mares_y_oceanos/oceano_atlantico.html">ATLÁNTICO</a></li>
+                            <li><a href="Mares_y_oceanos/mediterraneo.html">MEDITERRÁNEO</a></li>
+                            <li><a href="Mares_y_oceanos/mares_tropicales.html">MARES TROPICALES</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- TERRARIO -->
+                    <li>
+                        <div class="menu-item-head">TERRARIO <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="TERRARIO/insectos.html">INSECTOS</a></li>
+                            <li><a href="TERRARIO/reptiles.html">REPTILES</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- INFO -->
+                    <li>
+                        <div class="menu-item-head">INFORMACIÓN <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="noticias.html">NOTICIAS</a></li>
+                            <li><a href="ONG/ong1.html">ONGs</a></li>
+                            <li><a href="nosotros.html">NOSOTROS</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- JUEGOS -->
+                    <li>
+                        <div class="menu-item-head">JUEGOS <i class="fa-solid fa-plus"></i></div>
+                        <ul class="sub-menu">
+                            <li><a href="juegos.html">KAHOOT</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="iconos">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <a href="login.html" id="login-btn-header" style="color: white; text-decoration: none;">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
 
 
-<main class="contenedor">
+    <main class="contenedor">
 
-<section class="banner-auto">
-    <div class="banner-track">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 1">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 2">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 3">
-    </div>
-</section>
+        <section id="dev-controls"
+            style="display:none; padding: 20px; background: #eee; text-align: center; border-bottom: 2px solid #ccc; margin-bottom: 20px; border-radius: 10px;">
+            <h3 style="color: #333; margin-top: 0;">Developer Mode Active</h3>
+            <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <a href="formulario.html" class="boton-caja"
+                    style="width: auto; height: auto; padding: 15px; font-size: 1rem;">Admin Animales</a>
+                <a href="register.html" class="boton-caja"
+                    style="width: auto; height: auto; padding: 15px; font-size: 1rem;">Admin Usuarios</a>
+                <a href="news_form.html" class="boton-caja"
+                    style="width: auto; height: auto; padding: 15px; font-size: 1rem;">Admin Noticias</a>
+            </div>
+        </section>
 
-    <section class="fila-botones">
-        <a href="zoo.html" class="boton-caja">
+        <section class="banner-auto fading-banner">
+            <img src="imagenes/Banner1/foto1.jpg" alt="Banner 1">
+            <img src="imagenes/Banner1/foto2.jpg" alt="Banner 2">
+            <img src="imagenes/Banner1/foto3.jpg" alt="Banner 3">
+            <img src="imagenes/Banner1/foto4.jpg" alt="Banner 4">
+            <img src="imagenes/Banner1/foto5.jpg" alt="Banner 5">
+            <img src="imagenes/Banner1/foto6.jpg" alt="Banner 6">
+        </section>
+
+        <section class="fila-botones">
+            <a href="ZOO/zoo.html" class="boton-caja">
                 <h3>Zoo</h3>
             </a>
 
-            <a href="acuario.html" class="boton-caja">
+            <a href="Mares_y_oceanos/acuario.html" class="boton-caja">
                 <h3>Acuario</h3>
             </a>
 
-              <a href="terrario.html" class="boton-caja">
+            <a href="TERRARIO/terrario.html" class="boton-caja">
                 <h3>Terrario</h3>
             </a>
-    </section>
+        </section>
 
-<section class="banner-auto">
-    <div class="banner-track">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 1">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 2">
-        <img src="Imagenes/1200px-JumpingOrca.jpg" alt="Banner 3">
-    </div>
-</section>
+        <section class="banner-auto fading-banner">
+            <img src="imagenes/Banner2/foto7.jpg" alt="Banner 1">
+            <img src="imagenes/Banner2/foto8.jpg" alt="Banner 2">
+            <img src="imagenes/Banner2/foto9.jpg" alt="Banner 3">
+            <img src="imagenes/Banner2/foto10.jpg" alt="Banner 4">
+            <img src="imagenes/Banner2/foto11.jpg" alt="Banner 5">
+            <img src="imagenes/Banner2/foto12.jpg" alt="Banner 6">
+        </section>
 
-    <section class="seccion-carrusel">
-          <h2 class="titulo-seccion">Noticias</h2>
+        <section class="seccion-carrusel">
+            <h2 class="titulo-seccion">Noticias</h2>
 
-    <div class="carrusel">
-        <div class="carrusel-track">
-            <a href="noticias.html"><img src="Imagenes/1200px-JumpingOrca.jpg" alt="Noticia 1"></a>
-            <a href="noticias.html"><img src="Imagenes/1200px-JumpingOrca.jpg" alt="Noticia 2"></a>
-            <a href="noticias.html"><img src="Imagenes/1200px-JumpingOrca.jpg" alt="Noticia 3"></a>
-            <a href="noticias.html"><img src="Imagenes/1200px-JumpingOrca.jpg" alt="Noticia 4"></a>
-            <a href="noticias.html"><img src="Imagenes/1200px-JumpingOrca.jpg" alt="Noticia 5"></a>
+            <!-- Wrapper for positioning buttons outside -->
+            <div class="carrusel-wrapper" style="position: relative; max-width: 800px; margin: 0 auto;">
+                <button class="carrusel-btn prev" id="carrusel-prev">&#10094;</button>
+
+                <div class="carrusel">
+                    <div class="carousel-viewport">
+                        <div class="carrusel-track" id="carousel-track-dynamic">
+                            <!-- Dynamic slides injected here by news_loader.js -->
+                            <p style="text-align:center; width:100%; padding:20px;">Cargando noticias...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carrusel-btn next" id="carrusel-next">&#10095;</button>
+            </div>
+        </section>
+        <div class="banner-texto">
+            <p> World Wildlife Fund - International fund for animals - World animal protection - We are born free -
+                Comunidad inti wara yassi - ONG fauna verso -</p>
         </div>
 
-        <button class="carrusel-btn prev">&#10094;</button>
-        <button class="carrusel-btn next">&#10095;</button>
-    </div>
-    </section>
-<div class="banner-texto">
-    <p> World Wildlife Fund - International fund for animals - World animal protection - We are born free - Comunidad inti wara yassi - ONG fauna verso -</p>
-</div>
+        <section class="seccion-ongs" id="ongs">
 
-    <section class="seccion-ongs">
-    <h2 class="titulo-seccion">ONGs</h2>
 
-    <div class="grid-ongs">
-        <a href="ong1.html" class="ong-item">
-            <img src="imagenes/wwf_logo.jpg" alt="WFF">
-            <p>WWF</p>
-        </a>
+            <div class="grid-ongs">
+                <a href="ONG/ong1.html" class="ong-item">
+                    <img src="ONG/imagenes/wwf_logo.jpg" alt="WFF">
+                    <p>WWF</p>
+                </a>
 
-        <a href="ong2.html" class="ong-item">
-            <img src="imagenes/ifaw_logo.jpg" alt="IFAW">
-            <p>IFAW</p>
-        </a>
+                <a href="ONG/ong2.html" class="ong-item">
+                    <img src="ONG/imagenes/ifaw_logo.jpg" alt="IFAW">
+                    <p>IFAW</p>
+                </a>
 
-        <a href="ong3.html" class="ong-item">
-            <img src="ONG/imagenes/worldanimalprotection_logo.png" alt="wap">
-            <p>WAP</p>
-        </a>
+                <a href="ONG/ong3.html" class="ong-item">
+                    <img src="ONG/imagenes/worldanimalprotection_logo.png" alt="WAP">
+                    <p>WAP</p>
+                </a>
 
-        <a href="ong4.html" class="ong-item">
-            <img src="imagenes/bornfree_logo.jpg" alt="wabf">
-            <p>WABF</p>
-        </a>
+                <a href="ONG/ong4.html" class="ong-item">
+                    <img src="ONG/imagenes/bornfree_logo.jpg" alt="WABF">
+                    <p>WABF</p>
+                </a>
 
-        <a href="ong5.html" class="ong-item">
-            <img src="imagenes/ciwi_logo.jpg" alt="CIWY">
-            <p>CIWY</p>
-        </a>
+                <a href="ONG/ong5.html" class="ong-item">
+                    <img src="ONG/imagenes/ciwi_logo.jpg" alt="CIWY">
+                    <p>CIWY</p>
+                </a>
 
-        <a href="ong6.html" class="ong-item">
-            <img src="imagenes/ongfauna_logo.png" alt="ONGfa">
-            <p>ONGfa</p>
-        </a>
-    </div>
-</section>
+                <a href="ONG/ong6.html" class="ong-item">
+                    <img src="ONG/imagenes/ongfauna_logo.png" alt="ONGfa">
+                    <p>ONGfa</p>
+                </a>
+            </div>
+        </section>
 
-</main>
+    </main>
 
-<footer class="footer">
-    <p>Zooplanet © 2025</p>
-</footer>
+    <footer class="footer">
+        <img src="imagenes/logo.png" alt="Zooplanet Logo" style="height: 60px; margin-bottom: 10px;">
+        <p>Zooplanet © 2025</p>
+    </footer>
 
-<script src="menu.js"></script>
-<script src="carrusel.js"></script>
+    <script src="menu.js"></script>
+    <script src="news_loader.js?v=3"></script>
 </body>
+
 </html>
