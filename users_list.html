@@ -3,11 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- Configuración responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Lista de Usuarios - Zooplanet Dev</title>
+
+    <!-- Estilos base y principales -->
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="CSS/styles.css">
+
+    <!-- Iconos Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Estilos específicos de las tarjetas de usuario -->
     <style>
         .user-card {
             display: flex;
@@ -60,25 +68,27 @@
 </head>
 
 <body>
+    <!-- Cabecera con navegación -->
     <header>
         <nav class="nav">
             <div class="nav-left">
+                <!-- Botón menú lateral -->
                 <i id="menu-btn" class="menu-btn-icon fa-solid fa-bars"></i>
                 <h1 class="titulo">DEV MODE - USUARIOS</h1>
             </div>
 
-
+            <!-- Menú desplegable -->
             <div id="menu" class="menu-oculto">
                 <div class="menu-top">
                     <i class="fa-solid fa-xmark menu-close-btn" id="menu-close-btn"></i>
                     <div class="menu-logo-circle">
                         <img src="imagenes/paz.png" alt="Zoo Logo">
                     </div>
-                    
                 </div>
 
+                <!-- Estructura del menú -->
                 <ul class="menu-list">
-                    <!-- ZOO -->
+                    <!-- Secciones del sitio -->
                     <li>
                         <div class="menu-item-head">ZOO <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -88,7 +98,6 @@
                         </ul>
                     </li>
 
-                    <!-- ACUARIO -->
                     <li>
                         <div class="menu-item-head">ACUARIO <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -99,7 +108,6 @@
                         </ul>
                     </li>
 
-                    <!-- TERRARIO -->
                     <li>
                         <div class="menu-item-head">TERRARIO <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -108,7 +116,6 @@
                         </ul>
                     </li>
 
-                    <!-- INFO -->
                     <li>
                         <div class="menu-item-head">INFORMACIÓN <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -118,7 +125,6 @@
                         </ul>
                     </li>
 
-                    <!-- JUEGOS -->
                     <li>
                         <div class="menu-item-head">JUEGOS <i class="fa-solid fa-plus"></i></div>
                         <ul class="sub-menu">
@@ -127,6 +133,8 @@
                     </li>
                 </ul>
             </div>
+
+            <!-- Botón volver -->
             <div class="iconos">
                 <a href="developer.html" style="color: white; font-size: 1.2rem; text-decoration: none;">
                     <i class="fa-solid fa-arrow-left"></i> Volver
@@ -135,14 +143,17 @@
         </nav>
     </header>
 
+    <!-- Contenido principal -->
     <main class="contenedor" style="padding-top: 40px;">
         <h2 class="titulo-seccion">Usuarios Registrados</h2>
+
+        <!-- Contenedor dinámico de usuarios -->
         <div id="users-container" style="max-width: 800px; margin: 0 auto;">
-            <!-- JS will populate -->
             <p style="text-align:center;">Cargando...</p>
         </div>
     </main>
 
+    <!-- Scripts -->
     <script src="menu.js"></script>
     <script src="users_list.js"></script>
 </body>
